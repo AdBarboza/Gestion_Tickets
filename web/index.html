@@ -11,30 +11,48 @@ and open the template in the editor.
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
     </head>
     <body>
-        <div>Pantalla principal de Estudiantes
+        <div>
+            <h1>
+                Pantalla principal de Estudiantes
+            </h1>
+            <p>
+                Bienvenido a la plataforma de tiquetes. Porfavot selecciones un Curso y un profesor para enviar un tiquete
+                o bien coloque su número de carnet para ver una lista de sus tiquetes enviados.
+            </p>
             <form name="formInicial" action="Inicio" >
-                <input type="submit" value="Ticket Consulta" name="TicketC" />
-                <input type="submit" value="Ticket Revision" name="TicketRP" />
-                <input type="submit" value="Ticket Reclamo" name="TicketRE" />
+                <div>
+                <input type="text" name="carnet">
+                &nbsp;
+                <input type="submit" value="Buscar" name="btnBuscar" />
+                </div>
                 
+                <br>
+                
+                <div>
                 <select>
                     <option value="volvo">Curso 1</option>
                     <option value="saab">Curso 2</option>
                     <option value="mercedes">Curso 3</option>
                     <option value="audi">Curso 4</option>
                 </select>
-                
+                </div>
+                <br>
+
+                <div>
                 <select>
                     <option value="volvo">Profe 1</option>
                     <option value="saab">Profe 2</option>
                     <option value="mercedes">Profe 3</option>
                     <option value="audi">Profe 4</option>
                 </select>
+                </div>
                 
-                <input type="text" name="carnet">
-                
-                <input type="submit" value="Buscar" name="btnBuscar" />
-                
+                <br>
+
+                <input type="submit" value="Ticket Consulta" name="TicketC" />
+                <input type="submit" value="Ticket Revision" name="TicketRP" />
+                <input type="submit" value="Ticket Reclamo" name="TicketRE" />
+   
             </form>
         </div>
     </body>

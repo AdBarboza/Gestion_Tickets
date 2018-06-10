@@ -17,8 +17,8 @@ import javax.servlet.http.HttpServletResponse;
  *
  * @author Andre
  */
-@WebServlet(name = "Inicio", urlPatterns = {"/Inicio"})
-public class Inicio extends HttpServlet {
+@WebServlet(name = "EstudiantePrincipal", urlPatterns = {"/EstudiantePrincipal"})
+public class EstudiantePrincipal extends HttpServlet {
 
     /**
      * Processes requests for both HTTP <code>GET</code> and <code>POST</code>
@@ -31,18 +31,19 @@ public class Inicio extends HttpServlet {
      */
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-           
-            if (request.getParameter("btnEstudiante") != null){
-                /*atención al boton de Registro*/
-                /*redirecciona al servlet para que despliegue otra pagina*/
-                response.sendRedirect("EstudiantePrincipal.html");
-            }
-            else{
-                if (request.getParameter("btnProfesor") != null){
-                    response.sendRedirect("ProfeLogIn.html");
-                }
-            }
-            
+        response.setContentType("text/html;charset=UTF-8");
+        try (PrintWriter out = response.getWriter()) {
+            /* TODO output your page here. You may use following sample code. */
+            out.println("<!DOCTYPE html>");
+            out.println("<html>");
+            out.println("<head>");
+            out.println("<title>Servlet EstudiantePrincipal</title>");            
+            out.println("</head>");
+            out.println("<body>");
+            out.println("<h1>Servlet EstudiantePrincipal at " + request.getContextPath() + "</h1>");
+            out.println("</body>");
+            out.println("</html>");
+        }
     }
 
     // <editor-fold defaultstate="collapsed" desc="HttpServlet methods. Click on the + sign on the left to edit the code.">

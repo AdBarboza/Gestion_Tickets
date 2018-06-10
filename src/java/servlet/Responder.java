@@ -17,8 +17,8 @@ import javax.servlet.http.HttpServletResponse;
  *
  * @author Andre
  */
-@WebServlet(name = "Inicio", urlPatterns = {"/Inicio"})
-public class Inicio extends HttpServlet {
+@WebServlet(name = "Responder", urlPatterns = {"/Responder"})
+public class Responder extends HttpServlet {
 
     /**
      * Processes requests for both HTTP <code>GET</code> and <code>POST</code>
@@ -31,18 +31,17 @@ public class Inicio extends HttpServlet {
      */
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-           
-            if (request.getParameter("btnEstudiante") != null){
+        if (request.getParameter("btnAtrasR") != null){
                 /*atención al boton de Registro*/
                 /*redirecciona al servlet para que despliegue otra pagina*/
-                response.sendRedirect("EstudiantePrincipal.html");
+                response.sendRedirect("TicketsProfe.html");
             }
-            else{
-                if (request.getParameter("btnProfesor") != null){
-                    response.sendRedirect("ProfeLogIn.html");
+        else{
+                if (request.getParameter("btnEnviar") != null){
+                    //Mensaje de que se envió
+                    response.sendRedirect("ProfePrincipal.html");
                 }
             }
-            
     }
 
     // <editor-fold defaultstate="collapsed" desc="HttpServlet methods. Click on the + sign on the left to edit the code.">

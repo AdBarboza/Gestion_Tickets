@@ -17,7 +17,7 @@ import javax.servlet.http.HttpServletResponse;
  *
  * @author Andre
  */
-@WebServlet(name = "ConsultaEstudiante", urlPatterns = {"/ConsultaEstudiante"})
+@WebServlet(name = "Inicio", urlPatterns = {"/Inicio"})
 public class Inicio extends HttpServlet {
 
     /**
@@ -37,11 +37,7 @@ public class Inicio extends HttpServlet {
                 /*redirecciona al servlet para que despliegue otra pagina*/
                 response.sendRedirect("PantallaBuscar.html");
             }
-            else{
-                if (request.getParameter("btnBuscar") != null){
-                    response.sendRedirect("PantallaBuscar.html");
-                }
-            }
+            
     }
 
     // <editor-fold defaultstate="collapsed" desc="HttpServlet methods. Click on the + sign on the left to edit the code.">

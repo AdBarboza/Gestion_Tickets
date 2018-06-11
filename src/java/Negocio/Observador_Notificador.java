@@ -5,7 +5,6 @@
  */
 package Negocio;
 
-import org.jboss.weld.util.Observers;
 
 /**
  *

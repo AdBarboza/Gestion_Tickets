@@ -5,6 +5,8 @@
  */
 package servlet;
 
+import Control.Controlador;
+import Negocio.BridgeControlador;
 import java.io.IOException;
 import java.io.PrintWriter;
 import javax.servlet.ServletException;
@@ -29,6 +31,7 @@ public class ProfeLogIn extends HttpServlet {
      * @throws ServletException if a servlet-specific error occurs
      * @throws IOException if an I/O error occurs
      */
+    BridgeControlador controller = BridgeControlador.getInstance();
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         response.setContentType("text/html;charset=UTF-8");
@@ -36,7 +39,15 @@ public class ProfeLogIn extends HttpServlet {
         if (request.getParameter("btnLogIn") != null){
                 /*atención al boton de Registro*/
                 /*redirecciona al servlet para que despliegue otra pagina*/
-                response.sendRedirect("ProfePrincipal.html");
+                String correo = request.getParameter("Usuario");
+                String pass = request.getParameter("Contraseña");
+                
+                boolean mier = controller.getControllerOld().logear(correo, pass);
+                
+                if (mier == true){
+                    
+                    response.sendRedirect("ProfePrincipal.html");
+                }
             }
         else{
                 if (request.getParameter("btnResgistro") != null){

@@ -39,6 +39,9 @@ public class ProfePrincipal extends HttpServlet {
         else  if (request.getParameter("btnTickets") != null){
                     response.sendRedirect("TicketsProfe.html");
                 }
+        else  if (request.getParameter("btnConfiguracion") != null){
+                    response.sendRedirect("ConfigurarProfe.html");
+                }
         else{
                 if (request.getParameter("btnTicketsCurso") != null){
                     response.sendRedirect("TicketsProfe.html");

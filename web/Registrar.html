@@ -6,17 +6,16 @@ and open the template in the editor.
 -->
 <html>
     <head>
-        <title>Configuración</title>
+        <title>Registro</title>
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
     </head>
     <body>
-        
         <h1>
-            Configuración
+            Registro
         </h1>
         
-        <form name="formConfigurarProfe" action="ConfigurarProfe">
+        <form name="formRegistrar" action="Registrar">
             
         &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;
         <input type="checkbox" name="Consulta" value="tipo"> Consulta<br> <br> 
@@ -27,9 +26,34 @@ and open the template in the editor.
             
             <input type="checkbox" name="curso1" value="Curso"> Curso 1<br> <br> 
             <input type="checkbox" name="curso2" value="Curso" checked="checked"> Curso 2<br> <br>
-            <input type="submit" value="Aceptar" name="btnAceptar">
-            &nbsp;
-            <input type="submit" value="Atras" name="btnAtrasConf">
+            <input type="submit" value="Aceptar" name="btnAceptar"> <br> <br>
+            
+            <div> 
+                    <label for="UsuR"> Usuario: </label> 
+                </div>
+                
+                <br>
+                
+                <div>
+                <input type="text" name="UsuarioR">
+                </div>
+                
+                <br>
+                
+                <div> 
+                    <label for="PassR"> Contraseña: </label> 
+                </div>
+                
+                <br>
+                
+                <div>
+                <input type="text" name="ContraseñaR">
+                </div>
+                
+                <br>
+                
+                <input type="submit" value="Ingresar" name="btnIngresar" />
+            
         </form>
     </body>
 </html>

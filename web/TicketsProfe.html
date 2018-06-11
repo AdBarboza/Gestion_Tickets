@@ -17,11 +17,27 @@ and open the template in the editor.
         <form name="formProfeTickets" action="TicketsProfe" >
             
             <div> 
-                <label for="TicketsProfe"> Tickets </label> 
+                <label for="Ordenar"> Ordenar </label> 
             </div>
+            
+            <br>
+            
+            <div>
+                <select>
+                    <option value="OrdenCursoGeneral">Curso</option>
+                    <option value="OrdenCarnetGeneral">Carnet</option>
+                    <option value="OrdenTipoGeneral">Tipo</option>
+                </select>
+            </div>
+                <br>
                 
-                <br>
-                <br>
+            <div>
+                <select>
+                    <option value="OrdenCarnetGeneral">Carnet</option>
+                    <option value="OrdenTipoGeneral">Tipo</option>
+                </select>
+            </div>
+                <br>    
 
             <div class="list-group">
                <div>
@@ -32,18 +48,21 @@ and open the template in the editor.
                </div>
                <a href="#" class="list-group-item">Ticket</a>
             </div>
+                
+                <br>
 
-            <br>
-            
+                
             <div> 
                 <label for="DetalleTicketP"> Detalle </label> 
             </div>
             
+            <br> 
+            <br>
             <div>
-            <textarea rows="4" cols="50">Detalle de los tickets
+            <textarea name= "DetalleTick" rows="4" cols="50">Detalle de los tickets
             </textarea>
-            </div>    
-             
+            </div>     
+ 
             <br>
             <div>
             <input type="submit" value="Descargar detalle" name="btnDescargarTickP" />

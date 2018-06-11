@@ -18,9 +18,14 @@ and open the template in the editor.
             
             <div> 
                 <label for="Fecha"> Fecha </label> 
+                &nbsp;
+                &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;
+                <label for="Lugar"> Lugar </label> 
             </div>
             
             <input type="text" name="fechaR">
+            &nbsp;
+            <input type="lugar" name="lugarR">
             <br>
             <br>
             
@@ -33,14 +38,6 @@ and open the template in the editor.
             <br>
             
             <div> 
-                <label for="Destalle"> Detalle </label> 
-            </div>
-            
-            <input type="text" name="detalleR">
-            <br>
-            <br>
-            
-            <div> 
                 <label for="Credenciales"> Credenciales </label> 
             </div>
             
@@ -48,12 +45,41 @@ and open the template in the editor.
             <br>
             <br>
             
+                        
+            <div> 
+                <label for="DetalleTicketP"> Detalle </label> 
+            </div>
+            
+            <div>
+            <textarea name="DetalleProfe" rows="4" cols="50">
+            </textarea>
+            </div>   
+            
             <br>
             <br>
             
+            <div> 
+                <label for="ComentarioRevi"> Comentarios </label> 
+            </div>
+            
+            <div>
+            <textarea name = "Comentarios" rows="4" cols="50">
+            </textarea>
+            </div>   
+            
+            <br>
+            <br>
+            
+            <input type="submit" value="Enviar Archivo" name="btnArchivo" />
+            
+            <br>
+            <br>
+            
+            <div>
             <input type="submit" value="Atras" name="btnAtrasR" />
             &nbsp;
             <input type="submit" value="Enviar" name="btnEnviar" />
+            </div>
             
         </form>
     </body>

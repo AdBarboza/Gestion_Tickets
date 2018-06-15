@@ -5,8 +5,6 @@
  */
 package servlet;
 
-import Control.Controlador;
-import Negocio.BridgeControlador;
 import java.io.IOException;
 import java.io.PrintWriter;
 import javax.servlet.ServletException;
@@ -19,8 +17,8 @@ import javax.servlet.http.HttpServletResponse;
  *
  * @author Andre
  */
-@WebServlet(name = "ProfeLogIn", urlPatterns = {"/ProfeLogIn"})
-public class ProfeLogIn extends HttpServlet {
+@WebServlet(name = "EnviarTicket", urlPatterns = {"/EnviarTicket"})
+public class EnviarTicket extends HttpServlet {
 
     /**
      * Processes requests for both HTTP <code>GET</code> and <code>POST</code>
@@ -31,30 +29,17 @@ public class ProfeLogIn extends HttpServlet {
      * @throws ServletException if a servlet-specific error occurs
      * @throws IOException if an I/O error occurs
      */
-    BridgeControlador controller = BridgeControlador.getInstance();
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         response.setContentType("text/html;charset=UTF-8");
-        
-        if (request.getParameter("btnLogIn") != null){
-                /*atención al boton de Registro*/
-                /*redirecciona al servlet para que despliegue otra pagina*/
-                String correo = request.getParameter("Usuario");
-                String pass = request.getParameter("Contrasena");
-                
-               // boolean mier = controller.getControllerOld().logear(correo, pass);
-                
-                //if (mier == true){
-                    
-                    response.sendRedirect("ProfePrincipal.html");
-               // }
-            }
+        if (request.getParameter("btnAtrasE") != null){
+                    response.sendRedirect("EstudiantePrincipal.html");
+                }
         else{
-                if (request.getParameter("btnResgistro") != null){
-                    response.sendRedirect("Registrar.html");
+                if (request.getParameter("btnEnviarE") != null){
+                    response.sendRedirect("EstudiantePrincipal.html");
                 }
             }
-        
     }
 
     // <editor-fold defaultstate="collapsed" desc="HttpServlet methods. Click on the + sign on the left to edit the code.">
@@ -97,3 +82,5 @@ public class ProfeLogIn extends HttpServlet {
     }// </editor-fold>
 
 }
+
+

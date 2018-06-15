@@ -6,67 +6,76 @@ and open the template in the editor.
 -->
 <html>
     <head>
-        <title>Responder</title>
+        <title>Envio de ticket</title>
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
     </head>
     <body>
         <h1>
-            Responder Ticket
+            Enviar ticket
         </h1>
-        <form name="formResponder" action="Responder" >
+        <form name="formEnviarTicket" action="EnviarTicket" >
             
             <div> 
                 <label for="Fecha"> Fecha </label> 
                 &nbsp;
                 &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;
-                <label for="Lugar"> Lugar </label> 
+                <label for="Carnet"> Carnet </label> 
             </div>
             
-            <input type="text" name="fechaR">
+            <input type="text" name="fechaE">
             &nbsp;
-            <input type="lugar" name="lugarR">
+            <input type="text" name="carnetE">
             <br>
             <br>
             
             <div> 
-                <label for="Duración"> Duración </label> 
+                <label for="Tipo"> Tipo </label> 
+                &nbsp;
+                &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;
+                <label for="Asunto"> Asunto </label> 
             </div>
             
-            <input type="text" name="duracionR">
+            <input type="text" name="tipoE">
+            &nbsp;
+            <input type="text" name="asuntoE">
             <br>
             <br>
             
             <div> 
-                <label for="Credenciales"> Credenciales </label> 
+                <label for="Nombre"> Nombre </label> 
             </div>
             
-            <input type="text" name="credencialesR">
+            <input type="text" name="nombreE">
+            <br>
+            <br>
+            
+            <div> 
+                <label for="Correo"> Correo </label> 
+            </div>
+            
+            <input type="text" name="correoE">
             <br>
             <br>
             
                         
             <div> 
-                <label for="DetalleTicketP"> Detalle </label> 
+                <label for="Detalle"> Detalle </label> 
             </div>
             
             <div>
-            <textarea name="DetalleProfe" rows="4" cols="50">
+            <textarea name="DetalleE" rows="4" cols="50">
             </textarea>
             </div>   
             
             <br>
-            <br>
+            <br> 
             
             <div> 
-                <label for="ComentarioRevi"> Comentarios </label> 
+                <label for="Fecha propuesta"> FechaPro </label> 
             </div>
             
-            <div>
-            <textarea name = "Comentarios" rows="4" cols="50">
-            </textarea>
-            </div>   
-            
+            <input type="text" name="FechaProE">
             <br>
             <br>
             
@@ -76,9 +85,9 @@ and open the template in the editor.
             <br>
             
             <div>
-            <input type="submit" value="Atras" name="btnAtrasR" />
+            <input type="submit" value="Atras" name="btnAtrasE" />
             &nbsp;
-            <input type="submit" value="Enviar" name="btnEnviar" />
+            <input type="submit" value="Enviar" name="btnEnviarE" />
             </div>
             
         </form>

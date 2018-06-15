@@ -35,7 +35,7 @@ public class PantallaBuscar extends HttpServlet {
             if (request.getParameter("btnAtras") != null){
                 /*atención al boton de Registro*/
                 /*redirecciona al servlet para que despliegue otra pagina*/
-                response.sendRedirect("index.html");
+                response.sendRedirect("EstudiantePrincipal.html");
             }
             
     }

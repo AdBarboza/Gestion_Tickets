@@ -14,6 +14,7 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.swing.JOptionPane;
 
 /**
  *
@@ -31,30 +32,17 @@ public class ProfeLogIn extends HttpServlet {
      * @throws ServletException if a servlet-specific error occurs
      * @throws IOException if an I/O error occurs
      */
-    BridgeControlador controller = BridgeControlador.getInstance();
+    BridgeControlador controller;
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         response.setContentType("text/html;charset=UTF-8");
-        
-        if (request.getParameter("btnLogIn") != null){
-                /*atención al boton de Registro*/
-                /*redirecciona al servlet para que despliegue otra pagina*/
-                String correo = request.getParameter("Usuario");
-                String pass = request.getParameter("Contrasena");
-                
-               // boolean mier = controller.getControllerOld().logear(correo, pass);
-                
-                //if (mier == true){
-                    
-                    response.sendRedirect("ProfePrincipal.html");
-               // }
-            }
+        controller = BridgeControlador.getInstance();
+        if(controller.getControllerOld().logear(request.getParameter("Usuario"),request.getParameter("Contra"))){
+            response.sendRedirect("ProfePrincipal.html");
+        }
         else{
-                if (request.getParameter("btnResgistro") != null){
-                    response.sendRedirect("Registrar.html");
-                }
-            }
-        
+            response.sendRedirect("ProfeLogIn.html");
+        }
     }
 
     // <editor-fold defaultstate="collapsed" desc="HttpServlet methods. Click on the + sign on the left to edit the code.">

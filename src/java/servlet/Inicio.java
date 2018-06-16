@@ -5,8 +5,11 @@
  */
 package servlet;
 
+import Modelo.Curso;
+import Negocio.BridgeControlador;
 import java.io.IOException;
 import java.io.PrintWriter;
+import java.util.ArrayList;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
@@ -70,19 +73,26 @@ public class Inicio extends HttpServlet {
                         + "                "
                         + "                <div>"
                         + "                <select name=\"Cursos\">");
-
+                BridgeControlador controller = BridgeControlador.getInstance();
+                ArrayList<Curso> ac = (ArrayList<Curso>)controller.getControllerOld().verCursos();
+                for(Curso c : ac){
+                    out.println("<option value=\"" + c.getCodigo()+":"+c.getNbr() + "\">" +  c.getCodigo()+":"+c.getNbr() + "</option>");
+                }
+                
+                out.println( "                </select>"
+                        + "&nbsp; &nbsp;"
+                        + "<input type=\"submit\" value=\"Cargar Profes\" name=\"btnCargar\" />"
+                        + "                </div>"
+                        + "                <br>"
+                        + "                <div>"
+                        + "                <select>");
+                
                         //FOR DE CB
                         /*<option value=\"volvo\">Profe 1</option>"
                         + "                    <option value=\"saab\">Profe 2</option>"
                         + "                    <option value=\"mercedes\">Profe 3</option>"
                         + "                    <option value=\"audi\">Profe 4</option>"*/
                         
-                        
-                        out.println( "                </select>"
-                        + "                </div>"
-                        + "                <br>"
-                        + "                <div>"
-                        + "                <select>");
                         
                         //FOR DE CB
                         /*<option value=\"volvo\">Profe 1</option>"

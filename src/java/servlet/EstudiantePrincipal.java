@@ -5,8 +5,11 @@
  */
 package servlet;
 
+import Modelo.Curso;
+import Negocio.BridgeControlador;
 import java.io.IOException;
 import java.io.PrintWriter;
+import java.util.ArrayList;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
@@ -32,7 +35,10 @@ public class EstudiantePrincipal extends HttpServlet {
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         response.setContentType("text/html;charset=UTF-8");
-        if (request.getParameter("btnBuscar") != null){
+        if(request.getParameter("btnCargar")!= null){
+            btnCargarServlet(request,response, request.getParameter("Cursos"));
+        }
+        else if (request.getParameter("btnBuscar") != null){
                 response.sendRedirect("PantallaBuscar.html");
             }
         else if (request.getParameter("btnTicketC") != null){
@@ -87,4 +93,75 @@ public class EstudiantePrincipal extends HttpServlet {
         return "Short description";
     }// </editor-fold>
 
+    private void btnCargarServlet(HttpServletRequest request, HttpServletResponse response, String curso) throws IOException{
+        PrintWriter out = response.getWriter();
+                
+                out.println("<!DOCTYPE html>"
+                        + "<!--"
+                        + "To change this license header, choose License Headers in Project Properties."
+                        + "To change this template file, choose Tools | Templates"
+                        + "and open the template in the editor."
+                        + "-->"
+                        + "<html>"
+                        + "<head>"
+                        + "        <title>Bienvenido</title>"
+                        + "        <meta charset=\"UTF-8\">"
+                        + "        <meta name=\"viewport\" content=\"width=device-width, initial-scale=1.0\">"
+                        + "    </head>"
+                        + "    <body>"
+                        + "        <div>"
+                        + "            <h1>"
+                        + "                Pantalla principal de Estudiantes"
+                        + "            </h1>"
+                        + "            <p>"
+                        + "                      Bienvenido a la plataforma de tiquetes. Porfavot selecciones un Curso y un profesor para enviar un tiquete"
+                        + "                o bien coloque su número de carnet para ver una lista de sus tiquetes enviados."
+                        + "            </p>"
+                        + "            <form name=\"formEstudiantePrincipal\" action=\"EstudiantePrincipal\" >"
+                        + "                <div>"
+                        + "                <input type=\"text\" name=\"carnet\">"
+                        + "                &nbsp;"
+                        + "                <input type=\"submit\" value=\"Buscar\" name=\"btnBuscar\" />"
+                        + "                </div>"
+                        + "                "
+                        + "                <br>"
+                        + "                "
+                        + "                <div>"
+                        + "                <select name=\"Cursos\">");
+                BridgeControlador controller = BridgeControlador.getInstance();
+                ArrayList<Curso> ac = (ArrayList<Curso>)controller.getControllerOld().verCursos();
+                ac.forEach((c) -> {
+                    out.println("<option value=\"" + c.getCodigo()+":"+c.getNbr() + "\">" +  c.getCodigo()+":"+c.getNbr() + "</option>");
+        });
+                
+                out.println( "             </select>"
+                        + "&nbsp; &nbsp;"
+                        + "<input type=\"submit\" value=\"Cargar Profes\" name=\"btnCargar\" />"
+                        + "                </div>"
+                        + "                <br>"
+                        + "                <div>"
+                        + "                <select>");
+                
+                 String nameC = curso.split(":")[0];
+                 out.println("<option value=\"" + nameC+ "\">" +  nameC + "</option>");
+
+                        //FOR DE CB
+                        /*<option value=\"volvo\">Profe 1</option>"
+                        + "                    <option value=\"saab\">Profe 2</option>"
+                        + "                    <option value=\"mercedes\">Profe 3</option>"
+                        + "                    <option value=\"audi\">Profe 4</option>"*/
+
+                                
+                        out.println("</select>"
+                        + "                </div>                                   "
+                        + "                <br>"
+                        + ""
+                        + "                <input type=\"submit\" value=\"Ticket Consulta\" name=\"btnTicketC\" />"
+                        + "                <input type=\"submit\" value=\"Ticket Revision\" name=\"btnTicketRP\" />"
+                        + "                <input type=\"submit\" value=\"Ticket Reclamo\" name=\"btnTicketRE\" />"
+                        + "            </form>"
+                        + "        </div>"
+                        + "    </body>"
+                        + "</html>");
+    }
 }

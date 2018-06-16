@@ -34,7 +34,53 @@ public class Registrar extends HttpServlet {
         if (request.getParameter("btnIngresar") != null){
                 /*atención al boton de Registro*/
                 /*redirecciona al servlet para que despliegue otra pagina*/
-                response.sendRedirect("ProfePrincipal.html");
+                //response.sendRedirect("ProfePrincipal.html");
+                PrintWriter out = response.getWriter();
+                
+                out.println("<!DOCTYPE html>\n" +
+"<!--\n" +
+"To change this license header, choose License Headers in Project Properties.\n" +
+"To change this template file, choose Tools | Templates\n" +
+"and open the template in the editor.\n" +
+"-->\n" +
+"<html>\n" +
+"    <head>\n" +
+"        <title>Pantalla Principal</title>\n" +
+"        <meta charset=\"UTF-8\">\n" +
+"        <meta name=\"viewport\" content=\"width=device-width, initial-scale=1.0\">\n" +
+"    </head>\n" +
+"    <body>\n" +
+"            <h1>\n" +
+"                Cursos\n" +
+"            </h1>\n" +
+"            <form name=\"formProfePrincipal\" action=\"ProfePrincipal\" >\n" +
+"                \n" +
+"                <input type=\"submit\" value=\"Configuración\" name=\"btnConfiguracion\" />\n" +
+"                \n" +
+"                <br>\n" +
+"                <br>\n" +
+"                \n" +
+"               <br>"
+                        + "<div>"
+                        + "<select name=\"Cursos\">");
+                
+                
+                
+                out.println( "                </select>" +
+                        "                </div>"+
+"                \n" +
+"                <br>\n" +
+"                \n" +
+"                <input type=\"submit\" value=\"Ticktes\" name=\"btnTickets\" />\n" +
+"                &nbsp;\n" +
+"                <input type=\"submit\" value=\"Ticktes por Curso\" name=\"btnTicketsCurso\" />\n" +
+"                &nbsp;\n" +
+"                <input type=\"submit\" value=\"Salir\" name=\"btnSalir\" />\n" +
+"   \n" +
+"            </form>\n" +
+"    </body>\n" +
+"</html>\n" +
+"");
             }
     }
 

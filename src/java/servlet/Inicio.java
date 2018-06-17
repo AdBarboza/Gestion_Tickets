@@ -5,6 +5,7 @@
  */
 package servlet;
 
+import Control.Controlador;
 import Modelo.Curso;
 import Negocio.BridgeControlador;
 import java.io.IOException;
@@ -73,8 +74,8 @@ public class Inicio extends HttpServlet {
                         + "                "
                         + "                <div>"
                         + "                <select name=\"Cursos\">");
-                BridgeControlador controller = BridgeControlador.getInstance();
-                ArrayList<Curso> ac = (ArrayList<Curso>)controller.getControllerOld().verCursos();
+                Controlador controller = Controlador.getInstance();
+                ArrayList<Curso> ac = (ArrayList<Curso>)controller.verCursos();
                 for(Curso c : ac){
                     out.println("<option value=\"" + c.getCodigo()+":"+c.getNbr() + "\">" +  c.getCodigo()+":"+c.getNbr() + "</option>");
                 }

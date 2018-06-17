@@ -32,12 +32,12 @@ public class ProfeLogIn extends HttpServlet {
      * @throws ServletException if a servlet-specific error occurs
      * @throws IOException if an I/O error occurs
      */
-    BridgeControlador controller;
+    Controlador controller;
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         response.setContentType("text/html;charset=UTF-8");
-        controller = BridgeControlador.getInstance();
-        if(controller.getControllerOld().logear(request.getParameter("Usuario"),request.getParameter("Contra"))){
+        controller = Controlador.getInstance();
+        if(controller.logear(request.getParameter("Usuario"),request.getParameter("Contra"))){
             response.sendRedirect("ProfePrincipal.html");
         }
         else{

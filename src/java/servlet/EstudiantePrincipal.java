@@ -5,6 +5,7 @@
  */
 package servlet;
 
+import Control.Controlador;
 import Modelo.Curso;
 import Modelo.Ticket;
 import Negocio.BridgeControlador;
@@ -41,7 +42,7 @@ public class EstudiantePrincipal extends HttpServlet {
             btnCargarServlet(request,response, request.getParameter("Cursos"));
         }
         else if (request.getParameter("btnBuscar") != null){
-                response.sendRedirect("PantallaBuscar.html");
+                btnBuscarServlet(request, response);
             }
         else if (request.getParameter("btnTicketC") != null){
                 response.sendRedirect("EnviarTicket.html");
@@ -170,8 +171,8 @@ public class EstudiantePrincipal extends HttpServlet {
                         + "                "
                         + "                <div>"
                         + "                <select name=\"Cursos\">");
-                BridgeControlador controller = BridgeControlador.getInstance();
-                ArrayList<Curso> ac = (ArrayList<Curso>)controller.getControllerOld().verCursos();
+                Controlador controller = Controlador.getInstance();
+                ArrayList<Curso> ac = (ArrayList<Curso>)controller.verCursos();
                 ac.forEach((c) -> {
                     out.println("<option value=\"" + c.getCodigo()+":"+c.getNbr() + "\">" +  c.getCodigo()+":"+c.getNbr() + "</option>");
         });

@@ -7,6 +7,7 @@ package Negocio;
 
 import Control.Controlador;
 import Modelo.Ticket;
+import Modelo.Tickete_C;
 import java.util.ArrayList;
 
 /**
@@ -15,10 +16,9 @@ import java.util.ArrayList;
  */
 public class BridgeControlador {
     private static BridgeControlador controller;
-    private Controlador controllerOld;
 
     private BridgeControlador() {
-        controllerOld = Controlador.getInstance();
+        
     }
     
     public static BridgeControlador getInstance(){
@@ -27,17 +27,12 @@ public class BridgeControlador {
         }
         return controller;
     }
-
-    public Controlador getControllerOld() {
-        return controllerOld;
-    }
-
-    public void setControllerOld(Controlador controllerOld) {
-        this.controllerOld = controllerOld;
-    }
      
     public ArrayList<Ticket> VerTicketesEstudiante(String idEst){
        //falta por implementar
-       return null; 
+       ArrayList<Ticket> a= new ArrayList<Ticket>();
+       a.add(new Tickete_C());
+       a.get(0).setEstado("Implementar");
+       return a; 
     }
 }

@@ -6,6 +6,7 @@
 package servlet;
 
 import Modelo.Curso;
+import Modelo.Ticket;
 import Negocio.BridgeControlador;
 import java.io.IOException;
 import java.io.PrintWriter;
@@ -35,7 +36,8 @@ public class EstudiantePrincipal extends HttpServlet {
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         response.setContentType("text/html;charset=UTF-8");
-        if(request.getParameter("btnCargar")!= null){
+        
+        if(request.getParameter("btnCargar")!= null){ //listo
             btnCargarServlet(request,response, request.getParameter("Cursos"));
         }
         else if (request.getParameter("btnBuscar") != null){
@@ -92,7 +94,47 @@ public class EstudiantePrincipal extends HttpServlet {
     public String getServletInfo() {
         return "Short description";
     }// </editor-fold>
-
+    
+    private void btnBuscarServlet(HttpServletRequest request, HttpServletResponse response) throws IOException{
+        PrintWriter out = response.getWriter();
+        out.println("<!DOCTYPE html>"
+                + "<!--"
+                + "To change this license header, choose License Headers in Project Properties."
+                + "To change this template file, choose Tools | Templates"
+                + "and open the template in the editor."
+                + "-->"
+                + "<html>"
+                + "    <head>"
+                + "        <title>Busqueda de tiquetes</title>"
+                + "        <meta charset=\"UTF-8\">"
+                + "        <meta name=\"viewport\" content=\"width=device-width, initial-scale=1.0\">"
+                + "    </head>"
+                + "    <body>"
+                + "        <div>"
+                + "            <h1>"
+                + "                Busqueda de tiquetes enviados"
+                + "            </h1>"
+                + "<p>"
+                + " A continuación se muestran los tiquetes que usted ha enviado."
+                + "</p>"//por aca puede que cambie a un list box
+                + "<form name=\"formBuscar\" action=\"PantallaBuscar\" >"
+                + "<div class=\"list-group\">");
+        
+        BridgeControlador controller = BridgeControlador.getInstance();
+        String idEst = request.getParameter("carnet");
+        ArrayList<Ticket> at = controller.VerTicketesEstudiante(idEst); //cuidado con la carga de la bd
+        for (Ticket t : at){
+            out.println("<div>"
+                + "<a href=\"#\" class=\"list-group-item\">"+t.getEstado()+"</a>"
+                + "</div>");
+        }   
+        out.println("</div>"
+                + "<input type=\"submit\" value=\"Atras\" name=\"btnAtras\" />"
+                + "</form>"
+                + "</div>"
+                + "</body>"
+                + "</html>");
+    }
     private void btnCargarServlet(HttpServletRequest request, HttpServletResponse response, String curso) throws IOException{
         PrintWriter out = response.getWriter();
                 

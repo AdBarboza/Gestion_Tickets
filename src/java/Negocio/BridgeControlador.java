@@ -6,6 +6,8 @@
 package Negocio;
 
 import Control.Controlador;
+import Modelo.Ticket;
+import java.util.ArrayList;
 
 /**
  *
@@ -34,4 +36,8 @@ public class BridgeControlador {
         this.controllerOld = controllerOld;
     }
      
+    public ArrayList<Ticket> VerTicketesEstudiante(String idEst){
+       //falta por implementar
+       return null; 
+    }
 }

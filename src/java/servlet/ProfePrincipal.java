@@ -37,14 +37,234 @@ public class ProfePrincipal extends HttpServlet {
                 response.sendRedirect("ProfeLogIn.html");
             }
         else  if (request.getParameter("btnTickets") != null){
-                    response.sendRedirect("TicketsProfe.html");
+                    //response.sendRedirect("TicketsProfe.html");
+                    PrintWriter out = response.getWriter();
+                    out.println("<!DOCTYPE html>\n" +
+"<!--\n" +
+"To change this license header, choose License Headers in Project Properties.\n" +
+"To change this template file, choose Tools | Templates\n" +
+"and open the template in the editor.\n" +
+"-->\n" +
+"<html>\n" +
+"    <head>\n" +
+"        <title>Tickets</title>\n" +
+"        <meta charset=\"UTF-8\">\n" +
+"        <meta name=\"viewport\" content=\"width=device-width, initial-scale=1.0\">\n" +
+"    </head>\n" +
+"    <body>\n" +
+"         <h1>\n" +
+"            Tickets\n" +
+"        </h1>\n" +
+"        <form name=\"formProfeTickets\" action=\"TicketsProfe\" >\n" +
+"            \n" +
+"            <div> \n" +
+"                <label for=\"Ordenar\"> Ordenar </label> \n" +
+"            </div>\n" +
+"            \n" +
+"            <br>\n" +
+"            \n" +
+"            <div>\n" +
+"                <select>\n" +
+"                    <option value=\"OrdenCursoGeneral\">Curso</option>\n" +
+"                    <option value=\"OrdenCarnetGeneral\">Carnet</option>\n" +
+"                    <option value=\"OrdenTipoGeneral\">Tipo</option>\n" +
+"                </select>\n" +
+"            </div>\n" +
+"                <br>\n" +
+"                \n" +
+"            <div> \n" +
+"                <label for=\"Filtro\"> Filtro de Tipos </label> \n" +
+"            </div>\n" +
+"                \n" +
+"                <br>\n" +
+"                \n" +
+"            <div>\n" +
+"                <select>\n" +
+"                    <option value=\"Consulta\">Consulta</option>\n" +
+"                    <option value=\"Reclamo\">Reclamo</option>\n" +
+"                    <option value=\"Revision\">Revisión</option>\n" +
+"                </select>\n" +
+"            </div>\n" +
+"                <br> \n" +
+"            \n" +
+"            &nbsp;\n" +
+"            <input type=\"submit\" value=\"Aplicar\" name=\"btnAplicar\" /> <br> <br>\n" +
+"            \n" +
+"            <div>"+
+                    "<select name=\"Cursos\">" );
+            
+            /*BridgeControlador controller = BridgeControlador.getInstance();
+             ArrayList<Curso> ac = (ArrayList<Curso>)controller.getControllerOld().verCursos();
+             for(Curso c : ac){
+                 out.println("<option value=\"" + c.getCodigo()+":"+c.getNbr() + "\">" +  c.getCodigo()+":"+c.getNbr() + "</option>");
+             }
+                */
+            out.println( "                </select>"    +            
+"                <br>\n" +
+"                <br>\n" +                    
+"\n" +
+"                \n" +
+"            <div> \n" +
+"                <label for=\"DetalleTicketP\"> Detalle </label> \n" +
+"            </div>\n" +
+"            \n" +
+"            <br> \n" +
+"            <br>\n" +
+"            <div>\n" +
+"            <textarea name= \"DetalleTick\" rows=\"4\" cols=\"50\">Detalle de los tickets\n" +
+"            </textarea>\n" +
+"            </div>     \n" +
+" \n" +
+"            <br>\n" +
+"            <div>\n" +
+"            <input type=\"submit\" value=\"Descargar detalle\" name=\"btnDescargarTickP\" />\n" +
+"            </div>\n" +
+"            <br>\n" +
+"            \n" +
+"            \n" +
+"            <input type=\"submit\" value=\"Atras\" name=\"btnAtrasTickP\" />\n" +
+"            &nbsp;\n" +
+"            <input type=\"submit\" value=\"Responder\" name=\"btnResponderTickP\" />\n" +
+"            \n" +
+"\n" +
+"        </form>\n" +
+"    </body>\n" +
+"</html>\n" +
+"");
                 }
         else  if (request.getParameter("btnConfiguracion") != null){
-                    response.sendRedirect("ConfigurarProfe.html");
+                    PrintWriter out = response.getWriter();
+                    out.println("<html>\n" +
+"    <head>\n" +
+"        <title>Configuración</title>\n" +
+"        <meta charset=\"UTF-8\">\n" +
+"        <meta name=\"viewport\" content=\"width=device-width, initial-scale=1.0\">\n" +
+"    </head>\n" +
+"    <body>\n" +
+"        \n" +
+"        <h1>\n" +
+"            Configuración\n" +
+"        </h1>\n" +
+"        \n" +
+"        <form name=\"formConfigurarProfe\" action=\"ConfigurarProfe\">\n" +
+"            \n" +
+"        &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;\n" +
+"        <input type=\"checkbox\" name=\"Consulta\" value=\"tipo\"> Consulta<br> <br> \n" +
+"        &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;\n" +
+"        <input type=\"checkbox\" name=\"Revision\" value=\"tipo\"> Revisión<br> <br> \n" +
+"        &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;\n" +
+"        <input type=\"checkbox\" name=\"Reclamo\" value=\"tipo\"> Reclamo<br> <br>\n" +
+"            \n");
+                    
+            //ArrayList<Curso> ac = (ArrayList<Curso>)controller.getControllerOld().verCursos();
+             //for(Curso c : ac){
+               //  out.println("<input type=\"checkbox\" value=\"" + c.getCurso() + "\">" +  c.getCurso + "<br> <br> \n");
+             //}        
+                    
+             out.println("            <input type=\"submit\" value=\"Aceptar\" name=\"btnAceptar\">\n" +
+"            &nbsp;\n" +
+"            <input type=\"submit\" value=\"Atras\" name=\"btnAtrasConf\">\n" +
+"        </form>\n" +
+"    </body>\n" +
+"</html>");
                 }
         else{
                 if (request.getParameter("btnTicketsCurso") != null){
-                    response.sendRedirect("TicketsProfe.html");
+                    PrintWriter out = response.getWriter();
+                    out.println("<!DOCTYPE html>\n" +
+"<!--\n" +
+"To change this license header, choose License Headers in Project Properties.\n" +
+"To change this template file, choose Tools | Templates\n" +
+"and open the template in the editor.\n" +
+"-->\n" +
+"<html>\n" +
+"    <head>\n" +
+"        <title>Tickets</title>\n" +
+"        <meta charset=\"UTF-8\">\n" +
+"        <meta name=\"viewport\" content=\"width=device-width, initial-scale=1.0\">\n" +
+"    </head>\n" +
+"    <body>\n" +
+"         <h1>\n" +
+"            Tickets\n" +
+"        </h1>\n" +
+"        <form name=\"formProfeTickets\" action=\"TicketsProfe\" >\n" +
+"            \n" +
+"            <div> \n" +
+"                <label for=\"Ordenar\"> Ordenar </label> \n" +
+"            </div>\n" +
+"            \n" +
+"            <br>\n" +
+"            \n" +
+"            <div>\n" +
+"                <select>\n" +
+"                    <option value=\"OrdenCursoGeneral\">Curso</option>\n" +
+"                    <option value=\"OrdenCarnetGeneral\">Carnet</option>\n" +
+"                    <option value=\"OrdenTipoGeneral\">Tipo</option>\n" +
+"                </select>\n" +
+"            </div>\n" +
+"                <br>\n" +
+"                \n" +
+"            <div> \n" +
+"                <label for=\"Filtro\"> Filtro de Tipos </label> \n" +
+"            </div>\n" +
+"                \n" +
+"                <br>\n" +
+"                \n" +
+"            <div>\n" +
+"                <select>\n" +
+"                    <option value=\"Consulta\">Consulta</option>\n" +
+"                    <option value=\"Reclamo\">Reclamo</option>\n" +
+"                    <option value=\"Revision\">Revisión</option>\n" +
+"                </select>\n" +
+"            </div>\n" +
+"                <br> \n" +
+"            \n" +
+"            &nbsp;\n" +
+"            <input type=\"submit\" value=\"Aplicar\" name=\"btnAplicar\" /> <br> <br>\n" +
+"            \n" +
+"            <div>"+
+                    "<select name=\"Cursos\">" );
+            
+            /*BridgeControlador controller = BridgeControlador.getInstance();
+             ArrayList<Curso> ac = (ArrayList<Curso>)controller.getControllerOld().verCursos();
+             for(Curso c : ac){
+                 out.println("<option value=\"" + c.getCodigo()+":"+c.getNbr() + "\">" +  c.getCodigo()+":"+c.getNbr() + "</option>");
+             }
+                */
+            out.println( "                </select>"    +            
+"                <br>\n" +
+"                <br>\n" +                    
+"\n" +
+"                \n" +
+"            <div> \n" +
+"                <label for=\"DetalleTicketP\"> Detalle </label> \n" +
+"            </div>\n" +
+"            \n" +
+"            <br> \n" +
+"            <br>\n" +
+"            <div>\n" +
+"            <textarea name= \"DetalleTick\" rows=\"4\" cols=\"50\">Detalle de los tickets\n" +
+"            </textarea>\n" +
+"            </div>     \n" +
+" \n" +
+"            <br>\n" +
+"            <div>\n" +
+"            <input type=\"submit\" value=\"Descargar detalle\" name=\"btnDescargarTickP\" />\n" +
+"            </div>\n" +
+"            <br>\n" +
+"            \n" +
+"            \n" +
+"            <input type=\"submit\" value=\"Atras\" name=\"btnAtrasTickP\" />\n" +
+"            &nbsp;\n" +
+"            <input type=\"submit\" value=\"Responder\" name=\"btnResponderTickP\" />\n" +
+"            \n" +
+"\n" +
+"        </form>\n" +
+"    </body>\n" +
+"</html>\n" +
+"");
+                    //response.sendRedirect("TicketsProfe.html");
+                    
                 }
             }
     }

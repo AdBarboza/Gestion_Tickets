@@ -7,6 +7,7 @@ package servlet;
 
 import Control.Controlador;
 import Modelo.Curso;
+import Modelo.Profesor;
 import Modelo.Ticket;
 import Negocio.BridgeControlador;
 import java.io.IOException;
@@ -186,8 +187,11 @@ public class EstudiantePrincipal extends HttpServlet {
                         + "                <select>");
                 
                  String nameC = curso.split(":")[0];
-                 out.println("<option value=\"" + nameC+ "\">" +  nameC + "</option>");
-
+                 //out.println("<option value=\"" + nameC+ "\">" +  nameC + "</option>");//aca carga profes
+                 ArrayList<Profesor> profes = (ArrayList<Profesor>)controller.verProfesAsociados(Integer.parseInt(nameC));
+                 for (Profesor p : profes){
+                     out.println("<option value=\"" + p.getId()+":"+ p.getNbr()+ "\">" + p.getId()+":"+ p.getNbr() + "</option>");
+                 };
                         //FOR DE CB
                         /*<option value=\"volvo\">Profe 1</option>"
                         + "                    <option value=\"saab\">Profe 2</option>"

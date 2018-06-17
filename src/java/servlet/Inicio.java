@@ -87,21 +87,7 @@ public class Inicio extends HttpServlet {
                         + "                <br>"
                         + "                <div>"
                         + "                <select>");
-                
-                        //FOR DE CB
-                        /*<option value=\"volvo\">Profe 1</option>"
-                        + "                    <option value=\"saab\">Profe 2</option>"
-                        + "                    <option value=\"mercedes\">Profe 3</option>"
-                        + "                    <option value=\"audi\">Profe 4</option>"*/
-                        
-                        
-                        //FOR DE CB
-                        /*<option value=\"volvo\">Profe 1</option>"
-                        + "                    <option value=\"saab\">Profe 2</option>"
-                        + "                    <option value=\"mercedes\">Profe 3</option>"
-                        + "                    <option value=\"audi\">Profe 4</option>"*/
-
-                                
+        
                         out.println("</select>"
                         + "                </div>                                   "
                         + "                <br>"

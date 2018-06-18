@@ -22,7 +22,7 @@ public class PruebaMain {
      */
     public static void main(String[] args) throws IOException {
         // TODO code application logic here
-		try {
+		/*try {
 			Properties properties = new Properties();
 			properties.setProperty("favoriteAnimal", "marmot");
 			properties.setProperty("favoriteContinent", "Antarctica");
@@ -36,7 +36,7 @@ public class PruebaMain {
 			e.printStackTrace();
 		} catch (IOException e) {
 			e.printStackTrace();
-		}
+		}*/
     }
     
 }

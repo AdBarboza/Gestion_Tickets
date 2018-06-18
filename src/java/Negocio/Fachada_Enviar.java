@@ -1,0 +1,117 @@
+/*
+ * To change this license header, choose License Headers in Project Properties.
+ * To change this template file, choose Tools | Templates
+ * and open the template in the editor.
+ */
+package Negocio;
+
+/**
+ *
+ * @author Adrián
+ */
+public class Fachada_Enviar {
+    
+    public static String enviar(String tipo){
+        //tipo C, (re)E, (rp)P
+        String out;
+        out= "<!DOCTYPE html>"
+                + "<!--"
+                + "To change this license header, choose License Headers in Project Properties."
+                + "To change this template file, choose Tools | Templates"
+                + "and open the template in the editor."
+                + "-->"
+                + "<html>"
+                + "    <head>"
+                + "        <title>Envio de ticket</title>"
+                + "        <meta charset=\"UTF-8\">"
+                + "        <meta name=\"viewport\" content=\"width=device-width, initial-scale=1.0\">"
+                + "    </head>"
+                + "    <body>"
+                + "        <h1>"
+                + "            Enviar ticket"
+                + "        </h1>"
+                + "        <form name=\"formEnviarTicket\" action=\"EnviarTicket\" >";
+        if(tipo == "C"){
+                out = out +"            <div> "
+                + "                <label for=\"Fecha\"> Fecha </label> "
+                + "                &nbsp;"
+                + "                &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;"
+                + "                <label for=\"Carnet\"> Carnet </label> "
+                + "            </div>";
+                        };
+         //Arreglar 
+               String  a= "            <input type=\"text\" name=\"fechaE\">"
+                + "            &nbsp;"
+                + "            <input type=\"text\" name=\"carnetE\">"
+                + "            <br>"
+                + "            <br>"
+                + "            "
+                + "            <div> "
+                + "                <label for=\"Tipo\"> Tipo </label> "
+                + "                &nbsp;"
+                + "                &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;"
+                + "                <label for=\"Asunto\"> Asunto </label> "
+                + "            </div>"
+                + "            "
+                + "            <input type=\"text\" name=\"tipoE\">"
+                + "            &nbsp;"
+                + "            <input type=\"text\" name=\"asuntoE\">"
+                + "            <br>"
+                + "            <br>"
+                + "            "
+                + "            <div> "
+                + "                <label for=\"Nombre\"> Nombre </label> "
+                + "            </div>"
+                + "            "
+                + "            <input type=\"text\" name=\"nombreE\">"
+                + "            <br>"
+                + "            <br>"
+                + "            "
+                + "            <div> "
+                + "                <label for=\"Correo\"> Correo </label> "
+                + "            </div>"
+                + "            "
+                + "            <input type=\"text\" name=\"correoE\">"
+                + "            <br>"
+                + "            <br>"
+                + "            "
+                + "                        "
+                + "            <div> "
+                + "                <label for=\"Detalle\"> Detalle </label> "
+                + "            </div>"
+                + "            "
+                + "            <div>"
+                + "            <textarea name=\"DetalleE\" rows=\"4\" cols=\"50\">"
+                + "            </textarea>"
+                + "            </div>   "
+                + "            "
+                + "            <br>"
+                + "            <br> "
+                + "            "
+                + "            <div> "
+                + "                <label for=\"Fecha propuesta\"> FechaPro </label> "
+                + "            </div>"
+                + "            "
+                + "            <input type=\"text\" name=\"FechaProE\">"
+                + "            <br>"
+                + "            <br>"
+                + "            "
+                + "            <input type=\"submit\" value=\"Enviar Archivo\" name=\"btnArchivo\" />"
+                + "            "
+                + "            <br>"
+                + "            <br>"
+                + "            "
+                + "            <div>"
+                + "            <input type=\"submit\" value=\"Atras\" name=\"btnAtrasE\" />"
+                + "            &nbsp;"
+                + "            <input type=\"submit\" value=\"Enviar\" name=\"btnEnviarE\" />"
+                + "            </div>"
+                + "            "
+                + "        </form>"
+                + "    </body>"
+                + "</html>";
+        
+        return out;
+    }
+    
+}

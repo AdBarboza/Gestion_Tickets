@@ -139,14 +139,14 @@ public class ProfePrincipal extends HttpServlet {
                     PrintWriter out = response.getWriter();
                     out.println("<html>\n" +
 "    <head>\n" +
-"        <title>Configuración</title>\n" +
+"        <title>Configuracion</title>\n" +
 "        <meta charset=\"UTF-8\">\n" +
 "        <meta name=\"viewport\" content=\"width=device-width, initial-scale=1.0\">\n" +
 "    </head>\n" +
 "    <body>\n" +
 "        \n" +
 "        <h1>\n" +
-"            Configuración\n" +
+"            Configuracion\n" +
 "        </h1>\n" +
 "        \n" +
 "        <form name=\"formConfigurarProfe\" action=\"ConfigurarProfe\">\n" +
@@ -154,7 +154,7 @@ public class ProfePrincipal extends HttpServlet {
 "        &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;\n" +
 "        <input type=\"checkbox\" name=\"Consulta\" value=\"tipo\"> Consulta<br> <br> \n" +
 "        &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;\n" +
-"        <input type=\"checkbox\" name=\"Revision\" value=\"tipo\"> Revisión<br> <br> \n" +
+"        <input type=\"checkbox\" name=\"Revision\" value=\"tipo\"> Revision<br> <br> \n" +
 "        &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;\n" +
 "        <input type=\"checkbox\" name=\"Reclamo\" value=\"tipo\"> Reclamo<br> <br>\n" +
 "            \n" 
@@ -168,7 +168,7 @@ public class ProfePrincipal extends HttpServlet {
              }*/
             
             Controlador controller = Controlador.getInstance();
-            ArrayList<Curso> ac = (ArrayList<Curso>)controller.verCursosAsociados();
+            ArrayList<Curso> ac = (ArrayList<Curso>)controller.verCursos();
              for(Curso c : ac){
                  out.println("<option value=\"" + c.getCodigo()+":"+c.getNbr() + "\">" +  c.getCodigo()+":"+c.getNbr() + "</option>");
              }

@@ -69,7 +69,11 @@ public class Fachada_Responder {
 "            <input type=\"submit\" value=\"Atras\" name=\"btnAtrasR\" />\n" +
 "            &nbsp;\n" +
 "            <input type=\"submit\" value=\"Enviar\" name=\"btnEnviar\" />\n" +
-"            </div>";
+"            </div>" +
+                "            \n" +
+"        </form>\n" +
+"    </body>\n" +
+"</html>";
         return htmlOut;
         
     };

@@ -157,17 +157,32 @@ public class ProfePrincipal extends HttpServlet {
 "        <input type=\"checkbox\" name=\"Revision\" value=\"tipo\"> Revisión<br> <br> \n" +
 "        &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;\n" +
 "        <input type=\"checkbox\" name=\"Reclamo\" value=\"tipo\"> Reclamo<br> <br>\n" +
-"            \n");
+"            \n" 
+        + "                <div>"+
+                    "<select name=\"Cursos\">" );
                    
-            Controlador controller = Controlador.getInstance();      
+            /*Controlador controller = Controlador.getInstance();      
             ArrayList<Curso> ac = (ArrayList<Curso>)controller.verCursos();
              for(Curso c : ac){
                  out.println("<input type=\"checkbox\" value=\"" + c.getCodigo()+ "\">" +  c.getNbr() + "<br> <br> \n");
-             }        
+             }*/
+            
+            Controlador controller = Controlador.getInstance();
+            ArrayList<Curso> ac = (ArrayList<Curso>)controller.verCursosAsociados();
+             for(Curso c : ac){
+                 out.println("<option value=\"" + c.getCodigo()+":"+c.getNbr() + "\">" +  c.getCodigo()+":"+c.getNbr() + "</option>");
+             }
                     
-             out.println("            <input type=\"submit\" value=\"Aceptar\" name=\"btnAceptar\">\n" +
+             out.println("                </select>"    +    
+"                <br>\n" +
+"                <br>\n" +
+                "            <input type=\"submit\" value=\"Aceptar\" name=\"btnAceptar\">\n" +
 "            &nbsp;\n" +
 "            <input type=\"submit\" value=\"Atras\" name=\"btnAtrasConf\">\n" +
+"            &nbsp;\n" +
+"            <input type=\"submit\" value=\"Cargar Cursos\" name=\"btnCargar\">\n" +
+"            &nbsp;\n" +
+"            <input type=\"submit\" value=\"Reiniciar Config\" name=\"btnReiniciar\">\n" +
 "        </form>\n" +
 "    </body>\n" +
 "</html>");

@@ -6,9 +6,11 @@
 package servlet;
 
 import Control.Controlador;
+import Modelo.Curso;
 import Negocio.BridgeControlador;
 import java.io.IOException;
 import java.io.PrintWriter;
+import java.util.ArrayList;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
@@ -35,10 +37,9 @@ public class ProfeLogIn extends HttpServlet {
     Controlador controller;
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-        //response.setContentType("text/html;charset=UTF-8");
-        //controller = Controlador.getInstance();
-        //if(controller.logear(request.getParameter("Usuario"),request.getParameter("Contra"))){
-        if(true){
+        response.setContentType("text/html;charset=UTF-8");
+        controller = Controlador.getInstance();
+        if(controller.logear(request.getParameter("Usuario"),request.getParameter("Contra"))){
             PrintWriter out = response.getWriter();
             out.println("<!DOCTYPE html>\n" +
 "<!--\n" +
@@ -66,12 +67,12 @@ public class ProfeLogIn extends HttpServlet {
 + "                <div>"+
                     "<select name=\"Cursos\">" );
             
-            /*BridgeControlador controller = BridgeControlador.getInstance();
-             ArrayList<Curso> ac = (ArrayList<Curso>)controller.getControllerOld().verCursos();
+            Controlador controller = Controlador.getInstance();
+            ArrayList<Curso> ac = (ArrayList<Curso>)controller.verCursosAsociados();
              for(Curso c : ac){
                  out.println("<option value=\"" + c.getCodigo()+":"+c.getNbr() + "\">" +  c.getCodigo()+":"+c.getNbr() + "</option>");
              }
-                */
+                
             out.println( "                </select>"    +    
 "                <br>\n" +
 "                <br>\n" +

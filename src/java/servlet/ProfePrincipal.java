@@ -5,8 +5,11 @@
  */
 package servlet;
 
+import Control.Controlador;
+import Modelo.Curso;
 import java.io.IOException;
 import java.io.PrintWriter;
+import java.util.ArrayList;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
@@ -155,11 +158,12 @@ public class ProfePrincipal extends HttpServlet {
 "        &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;\n" +
 "        <input type=\"checkbox\" name=\"Reclamo\" value=\"tipo\"> Reclamo<br> <br>\n" +
 "            \n");
-                    
-            //ArrayList<Curso> ac = (ArrayList<Curso>)controller.getControllerOld().verCursos();
-             //for(Curso c : ac){
-               //  out.println("<input type=\"checkbox\" value=\"" + c.getCurso() + "\">" +  c.getCurso + "<br> <br> \n");
-             //}        
+                   
+            Controlador controller = Controlador.getInstance();      
+            ArrayList<Curso> ac = (ArrayList<Curso>)controller.verCursos();
+             for(Curso c : ac){
+                 out.println("<input type=\"checkbox\" value=\"" + c.getCodigo()+ "\">" +  c.getNbr() + "<br> <br> \n");
+             }        
                     
              out.println("            <input type=\"submit\" value=\"Aceptar\" name=\"btnAceptar\">\n" +
 "            &nbsp;\n" +

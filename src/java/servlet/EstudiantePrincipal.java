@@ -9,7 +9,7 @@ import Control.Controlador;
 import Modelo.Curso;
 import Modelo.Profesor;
 import Modelo.Ticket;
-import Negocio.BridgeControlador;
+import Negocio.Controladora;
 import Negocio.Fachada_Enviar;
 import java.io.IOException;
 import java.io.PrintWriter;
@@ -50,17 +50,30 @@ public class EstudiantePrincipal extends HttpServlet {
         else if (request.getParameter("btnTicketC") != null){
             Fachada_Enviar f = new Fachada_Enviar();
             PrintWriter out = response.getWriter();
+            Controladora controller = Controladora.getInstance();
+            controller.setIdC(Integer.parseInt(request.getParameter("Cursos").split(":")[0]));
+            controller.setIdP(Integer.parseInt(request.getParameter("Profes").split(":")[0]));
+            controller.setTipo("C");
             out.println(f.enviar("C"));
             }
         else  if (request.getParameter("btnTicketRE") != null){
             Fachada_Enviar f = new Fachada_Enviar();
             PrintWriter out = response.getWriter();
+            Controladora controller = Controladora.getInstance();
+            controller.setIdC(Integer.parseInt(request.getParameter("Cursos").split(":")[0]));
+            controller.setIdP(Integer.parseInt(request.getParameter("Profes").split(":")[0]));
+            controller.setTipo("RE");
             out.println(f.enviar("RE"));
+            
                 }
         else{
                 if (request.getParameter("btnTicketRP") != null){
                     Fachada_Enviar f = new Fachada_Enviar();
                     PrintWriter out = response.getWriter();
+                    Controladora controller = Controladora.getInstance();
+                    controller.setIdC(Integer.parseInt(request.getParameter("Cursos").split(":")[0]));
+                    controller.setIdP(Integer.parseInt(request.getParameter("Profes").split(":")[0]));
+                    controller.setTipo("RP");
                     out.println(f.enviar("RP"));
                 }
             }
@@ -130,7 +143,7 @@ public class EstudiantePrincipal extends HttpServlet {
                 + "<form name=\"formBuscar\" action=\"PantallaBuscar\" >"
                 + "<div class=\"list-group\">");
         
-        BridgeControlador controller = BridgeControlador.getInstance();
+        Controladora controller = Controladora.getInstance();
         String idEst = request.getParameter("carnet");
         ArrayList<Ticket> at = controller.VerTicketesEstudiante(idEst); //cuidado con la carga de la bd
         for (Ticket t : at){
@@ -192,7 +205,7 @@ public class EstudiantePrincipal extends HttpServlet {
                         + "                </div>"
                         + "                <br>"
                         + "                <div>"
-                        + "                <select>");
+                        + "                <select name=\"Profes\">");
                 
                  String nameC = curso.split(":")[0];
                  //out.println("<option value=\"" + nameC+ "\">" +  nameC + "</option>");//aca carga profes

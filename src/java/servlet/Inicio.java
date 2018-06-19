@@ -7,7 +7,7 @@ package servlet;
 
 import Control.Controlador;
 import Modelo.Curso;
-import Negocio.BridgeControlador;
+import Negocio.Controladora;
 import java.io.IOException;
 import java.io.PrintWriter;
 import java.util.ArrayList;

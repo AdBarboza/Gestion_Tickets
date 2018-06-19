@@ -31,6 +31,7 @@ public class consultaProperties extends capturaProperties{
 			File file = new File("ticketConsulta.properties");
 			FileOutputStream fileOut = new FileOutputStream(file);
                         properties.store(fileOut, "Ticket Consulta");
+                        System.out.println("Hoja");
 			fileOut.close();
 		} catch (FileNotFoundException e) {
 			e.printStackTrace();

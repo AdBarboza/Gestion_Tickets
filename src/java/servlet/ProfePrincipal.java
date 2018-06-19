@@ -73,6 +73,11 @@ public class ProfePrincipal extends HttpServlet {
                                 "                    <option value=\"OrdenTipoGeneral\">Tipo</option>\n" +
                                 "                </select>\n" +
                                 "            </div>\n" +
+                                "            <br>   " +
+                                "            <div>\n" +
+                                "            <input type=\"submit\" value=\"Ordenar\" name=\"btnOrdenar\" /> <br> <br>\n" +
+                                "            </div>\n" +
+                                "                <br>\n" +                            
                                 "                <br>\n" +
                                 "                \n" +
                                 "            <div> \n" +
@@ -86,6 +91,7 @@ public class ProfePrincipal extends HttpServlet {
                                 "                    <option value=\"Consulta\">Consulta</option>\n" +
                                 "                    <option value=\"Reclamo\">Reclamo</option>\n" +
                                 "                    <option value=\"Revision\">Revisión</option>\n" +
+                                "                    <option value=\"Todos\">Todos</option>\n" +                            
                                 "                </select>\n" +
                                 "            </div>\n" +
                                 "                <br> \n" +
@@ -221,6 +227,11 @@ public class ProfePrincipal extends HttpServlet {
 "                    <option value=\"OrdenTipoGeneral\">Tipo</option>\n" +
 "                </select>\n" +
 "            </div>\n" +
+"            <br>   " +
+"            <div>\n" +
+"            <input type=\"submit\" value=\"Ordenar\" name=\"btnOrdenar\" /> <br> <br>\n" +
+"            </div>\n" +
+"                <br>\n" +
 "                <br>\n" +
 "                \n" +
 "            <div> \n" +
@@ -234,6 +245,7 @@ public class ProfePrincipal extends HttpServlet {
 "                    <option value=\"Consulta\">Consulta</option>\n" +
 "                    <option value=\"Reclamo\">Reclamo</option>\n" +
 "                    <option value=\"Revision\">Revisión</option>\n" +
+"                    <option value=\"Todos\">Todos</option>\n" +                                
 "                </select>\n" +
 "            </div>\n" +
 "                <br> \n" +

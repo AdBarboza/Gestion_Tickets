@@ -73,20 +73,21 @@ public class Controladora {
     
     public void EnviarTicket(int idP, int idC, String tipo){
         PropertiesToXml propertoxml = new PropertiesToXml();
-        String path = propertoxml.convertir("C:\\Users\\Jafeth Leiva\\Desktop\\TEC\\TEC 2018 - l Semestre\\Diseño\\Gestion_Tickets\\ticketConsulta.properties");
-        System.out.println(path);
         Ticket ticket;
         if(tipo.equals("C")){
+            String path = propertoxml.convertir("C:\\Users\\Jafeth Leiva\\Desktop\\TEC\\TEC 2018 - l Semestre\\Diseño\\Gestion_Tickets\\ticketConsulta.properties");
             XmlToTicket_C ticketC = new XmlToTicket_C();
             ticket = (Ticket)ticketC.convertir(path);
             Controlador.getInstance().enviarTicket(idP, idC,ticket);
         }
         else if(tipo.equals("RE")){
+            String path = propertoxml.convertir("C:\\Users\\Jafeth Leiva\\Desktop\\TEC\\TEC 2018 - l Semestre\\Diseño\\Gestion_Tickets\\ticketReclamo.properties");
             XmlToTicket_RE ticketRE = new XmlToTicket_RE();
             ticket = (Ticket)ticketRE.convertir(path);
             Controlador.getInstance().enviarTicket(idP, idC,ticket);
         }
         else if(tipo.equals("RP")){
+            String path = propertoxml.convertir("C:\\Users\\Jafeth Leiva\\Desktop\\TEC\\TEC 2018 - l Semestre\\Diseño\\Gestion_Tickets\\ticketRevision.properties");
             XmlToTicket_RP ticketRP = new XmlToTicket_RP();
             ticket = (Ticket)ticketRP.convertir(path);
             Controlador.getInstance().enviarTicket(idP, idC,ticket);

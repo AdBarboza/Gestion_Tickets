@@ -5,9 +5,6 @@
  */
 package servlet;
 
-import Control.Controlador;
-import Modelo.Ticket;
-import Modelo.Tickete_C;
 import Negocio.Controladora;
 import Negocio.consultaProperties;
 import Negocio.reclamoProperties;
@@ -94,8 +91,10 @@ public class EnviarTicket extends HttpServlet {
                         Controladora cont = Controladora.getInstance();
                         cont.EnviarTicket(cont.getIdP(), cont.getIdC(), "RP");
                     }
-                    PrintWriter out = response.getWriter();
-                    out.println("<!DOCTYPE html>\n" +
+                        
+                    
+                    PrintWriter out  = response.getWriter();
+                        out.println("<!DOCTYPE html>\n" +
 "<!--\n" +
 "To change this license header, choose License Headers in Project Properties.\n" +
 "To change this template file, choose Tools | Templates\n" +
@@ -111,7 +110,7 @@ public class EnviarTicket extends HttpServlet {
 "        \n" +
 "        <h1>\n");
                         
-        //ACA VA EL CODIGO ASOCIADO AL TICKETE ENVIADO 
+        //ACA VA EL CODIGO           
                         
             out.println("        </h1>\n" +
 "        \n" +
@@ -165,5 +164,3 @@ public class EnviarTicket extends HttpServlet {
       
 
 }
-
-

@@ -34,97 +34,92 @@ public class Responder extends HttpServlet {
         if (request.getParameter("btnAtrasR") != null){
             PrintWriter out = response.getWriter();
                     out.println("<!DOCTYPE html>\n" +
-                "<!--\n" +
-"To change this license header, choose License Headers in Project Properties.\n" +
-"To change this template file, choose Tools | Templates\n" +
-"and open the template in the editor.\n" +
-"-->\n" +
-"<html>\n" +
-"    <head>\n" +
-"        <title>Tickets</title>\n" +
-"        <meta charset=\"UTF-8\">\n" +
-"        <meta name=\"viewport\" content=\"width=device-width, initial-scale=1.0\">\n" +
-"    </head>\n" +
-"    <body>\n" +
-"         <h1>\n" +
-"            Tickets\n" +
-"        </h1>\n" +
-"        <form name=\"formProfeTickets\" action=\"TicketsProfe\" >\n" +
-"            \n" +
-"            <div> \n" +
-"                <label for=\"Ordenar\"> Ordenar </label> \n" +
-"            </div>\n" +
-"            \n" +
-"            <br>\n" +
-"            \n" +
-"            <div>\n" +
-"                <select>\n" +
-"                    <option value=\"OrdenCursoGeneral\">Curso</option>\n" +
-"                    <option value=\"OrdenCarnetGeneral\">Carnet</option>\n" +
-"                    <option value=\"OrdenTipoGeneral\">Tipo</option>\n" +
-"                </select>\n" +
-"            </div>\n" +
-"                <br>\n" +
-"                \n" +
-"            <div> \n" +
-"                <label for=\"Filtro\"> Filtro de Tipos </label> \n" +
-"            </div>\n" +
-"                \n" +
-"                <br>\n" +
-"                \n" +
-"            <div>\n" +
-"                <select>\n" +
-"                    <option value=\"Consulta\">Consulta</option>\n" +
-"                    <option value=\"Reclamo\">Reclamo</option>\n" +
-"                    <option value=\"Revision\">Revisión</option>\n" +
-"                </select>\n" +
-"            </div>\n" +
-"                <br> \n" +
-"            \n" +
-"            &nbsp;\n" +
-"            <input type=\"submit\" value=\"Aplicar\" name=\"btnAplicar\" /> <br> <br>\n" +
-"            \n" +
-"            <div>"+
-                    "<select name=\"Cursos\">" );
-            
-            /*BridgeControlador controller = BridgeControlador.getInstance();
-             ArrayList<Curso> ac = (ArrayList<Curso>)controller.getControllerOld().verCursos();
-             for(Curso c : ac){
-                 out.println("<option value=\"" + c.getCodigo()+":"+c.getNbr() + "\">" +  c.getCodigo()+":"+c.getNbr() + "</option>");
-             }
-                */
-            out.println( "                </select>"    +            
-"                <br>\n" +
-"                <br>\n" +                    
-"\n" +
-"                \n" +
-"            <div> \n" +
-"                <label for=\"DetalleTicketP\"> Detalle </label> \n" +
-"            </div>\n" +
-"            \n" +
-"            <br> \n" +
-"            <br>\n" +
-"            <div>\n" +
-"            <textarea name= \"DetalleTick\" rows=\"4\" cols=\"50\">Detalle de los tickets\n" +
-"            </textarea>\n" +
-"            </div>     \n" +
-" \n" +
-"            <br>\n" +
-"            <div>\n" +
-"            <input type=\"submit\" value=\"Descargar detalle\" name=\"btnDescargarTickP\" />\n" +
-"            </div>\n" +
-"            <br>\n" +
-"            \n" +
-"            \n" +
-"            <input type=\"submit\" value=\"Atras\" name=\"btnAtrasTickP\" />\n" +
-"            &nbsp;\n" +
-"            <input type=\"submit\" value=\"Responder\" name=\"btnResponderTickP\" />\n" +
-"            \n" +
-"\n" +
-"        </form>\n" +
-"    </body>\n" +
-"</html>\n" +
-"");
+                                "<!--\n" +
+                                "To change this license header, choose License Headers in Project Properties.\n" +
+                                "To change this template file, choose Tools | Templates\n" +
+                                "and open the template in the editor.\n" +
+                                "-->\n" +
+                                "<html>\n" +
+                                "    <head>\n" +
+                                "        <title>Tickets</title>\n" +
+                                "        <meta charset=\"UTF-8\">\n" +
+                                "        <meta name=\"viewport\" content=\"width=device-width, initial-scale=1.0\">\n" +
+                                "    </head>\n" +
+                                "    <body>\n" +
+                                "         <h1>\n" +
+                                "            Tickets\n" +
+                                "        </h1>\n" +
+                                "        <form name=\"formProfeTickets\" action=\"TicketsProfe\" >\n" +
+                                "            \n" +
+                                "            <div> \n" +
+                                "                <label for=\"Ordenar\"> Ordenar </label> \n" +
+                                "            </div>\n" +
+                                "            \n" +
+                                "            <br>\n" +
+                                "            \n" +
+                                "            <div>\n" +
+                                "                <select>\n" +
+                                "                    <option value=\"OrdenCursoGeneral\">Curso</option>\n" +
+                                "                    <option value=\"OrdenCarnetGeneral\">Carnet</option>\n" +
+                                "                    <option value=\"OrdenTipoGeneral\">Tipo</option>\n" +
+                                "                </select>\n" +
+                                "            </div>\n" +
+                                "                <br>\n" +
+                                "                \n" +
+                                "            <div> \n" +
+                                "                <label for=\"Filtro\"> Filtro de Tipos </label> \n" +
+                                "            </div>\n" +
+                                "                \n" +
+                                "                <br>\n" +
+                                "                \n" +
+                                "            <div>\n" +
+                                "                <select>\n" +
+                                "                    <option value=\"Consulta\">Consulta</option>\n" +
+                                "                    <option value=\"Reclamo\">Reclamo</option>\n" +
+                                "                    <option value=\"Revision\">Revisión</option>\n" +
+                                "                </select>\n" +
+                                "            </div>\n" +
+                                "                <br> \n" +
+                                "            \n" +
+                                "            &nbsp;\n" +
+                                "            <input type=\"submit\" value=\"Aplicar\" name=\"btnAplicar\" /> <br> <br>\n" +
+                                "            \n" +
+                                "            <div>"+
+                                                    "<select name=\"Cursos\">" );
+                    
+                    
+                    out.println( "                </select>"    +            
+                                "                <br>\n" +
+                                "                <br>\n" +                    
+                                "\n" +
+                                "                \n" +
+                                "            <div> \n" +
+                                "                <label for=\"DetalleTicketP\"> Detalle </label> \n" +
+                                "            </div>\n" +
+                                "            \n" +
+                                "            <br> \n" +
+                                "            <br>\n" +
+                                "            <div>\n" +
+                                "            <textarea name= \"DetalleTick\" rows=\"4\" cols=\"50\">Detalle de los tickets\n" +
+                                "            </textarea>\n" +
+                                "            </div>     \n" +
+                                " \n" +
+                                "            <br>\n" +
+                                "            <div>\n" +
+                                "            <input type=\"submit\" value=\"Descargar detalle\" name=\"btnDescargarTickP\" />\n" +
+                                "            </div>\n" +
+                                "            <br>\n" +
+                                "            \n" +
+                                "            \n" +
+                                "            <input type=\"submit\" value=\"Atras\" name=\"btnAtrasTickP\" />\n" +
+                                "            &nbsp;\n" +
+                                "            <input type=\"submit\" value=\"Responder\" name=\"btnResponderTickP\" />\n" +
+                                "            \n" +
+                                "\n" +
+                                "        </form>\n" +
+                                "    </body>\n" +
+                                "</html>\n" +
+                                "");
                 }
         else  if (request.getParameter("btnConfiguracion") != null){
                     response.sendRedirect("ConfigurarProfe.html");
@@ -133,147 +128,141 @@ public class Responder extends HttpServlet {
                 if (request.getParameter("btnTicketsCurso") != null){
                     PrintWriter out = response.getWriter();
                     out.println("<!DOCTYPE html>\n" +
-"<!--\n" +
-"To change this license header, choose License Headers in Project Properties.\n" +
-"To change this template file, choose Tools | Templates\n" +
-"and open the template in the editor.\n" +
-"-->\n" +
-"<html>\n" +
-"    <head>\n" +
-"        <title>Tickets</title>\n" +
-"        <meta charset=\"UTF-8\">\n" +
-"        <meta name=\"viewport\" content=\"width=device-width, initial-scale=1.0\">\n" +
-"    </head>\n" +
-"    <body>\n" +
-"         <h1>\n" +
-"            Tickets\n" +
-"        </h1>\n" +
-"        <form name=\"formProfeTickets\" action=\"TicketsProfe\" >\n" +
-"            \n" +
-"            <div> \n" +
-"                <label for=\"Ordenar\"> Ordenar </label> \n" +
-"            </div>\n" +
-"            \n" +
-"            <br>\n" +
-"            \n" +
-"            <div>\n" +
-"                <select>\n" +
-"                    <option value=\"OrdenCursoGeneral\">Curso</option>\n" +
-"                    <option value=\"OrdenCarnetGeneral\">Carnet</option>\n" +
-"                    <option value=\"OrdenTipoGeneral\">Tipo</option>\n" +
-"                </select>\n" +
-"            </div>\n" +
-"                <br>\n" +
-"                \n" +
-"            <div> \n" +
-"                <label for=\"Filtro\"> Filtro de Tipos </label> \n" +
-"            </div>\n" +
-"                \n" +
-"                <br>\n" +
-"                \n" +
-"            <div>\n" +
-"                <select>\n" +
-"                    <option value=\"Consulta\">Consulta</option>\n" +
-"                    <option value=\"Reclamo\">Reclamo</option>\n" +
-"                    <option value=\"Revision\">Revisión</option>\n" +
-"                </select>\n" +
-"            </div>\n" +
-"                <br> \n" +
-"            \n" +
-"            &nbsp;\n" +
-"            <input type=\"submit\" value=\"Aplicar\" name=\"btnAplicar\" /> <br> <br>\n" +
-"            \n" +
-"            <div>"+
-                    "<select name=\"Cursos\">" );
-            
-            /*BridgeControlador controller = BridgeControlador.getInstance();
-             ArrayList<Curso> ac = (ArrayList<Curso>)controller.getControllerOld().verCursos();
-             for(Curso c : ac){
-                 out.println("<option value=\"" + c.getCodigo()+":"+c.getNbr() + "\">" +  c.getCodigo()+":"+c.getNbr() + "</option>");
-             }
-                */
-            out.println( "                </select>"    +            
-"                <br>\n" +
-"                <br>\n" +                    
-"\n" +
-"                \n" +
-"            <div> \n" +
-"                <label for=\"DetalleTicketP\"> Detalle </label> \n" +
-"            </div>\n" +
-"            \n" +
-"            <br> \n" +
-"            <br>\n" +
-"            <div>\n" +
-"            <textarea name= \"DetalleTick\" rows=\"4\" cols=\"50\">Detalle de los tickets\n" +
-"            </textarea>\n" +
-"            </div>     \n" +
-" \n" +
-"            <br>\n" +
-"            <div>\n" +
-"            <input type=\"submit\" value=\"Descargar detalle\" name=\"btnDescargarTickP\" />\n" +
-"            </div>\n" +
-"            <br>\n" +
-"            \n" +
-"            \n" +
-"            <input type=\"submit\" value=\"Atras\" name=\"btnAtrasTickP\" />\n" +
-"            &nbsp;\n" +
-"            <input type=\"submit\" value=\"Responder\" name=\"btnResponderTickP\" />\n" +
-"            \n" +
-"\n" +
-"        </form>\n" +
-"    </body>\n" +
-"</html>\n" +
-"");
+                                "<!--\n" +
+                                "To change this license header, choose License Headers in Project Properties.\n" +
+                                "To change this template file, choose Tools | Templates\n" +
+                                "and open the template in the editor.\n" +
+                                "-->\n" +
+                                "<html>\n" +
+                                "    <head>\n" +
+                                "        <title>Tickets</title>\n" +
+                                "        <meta charset=\"UTF-8\">\n" +
+                                "        <meta name=\"viewport\" content=\"width=device-width, initial-scale=1.0\">\n" +
+                                "    </head>\n" +
+                                "    <body>\n" +
+                                "         <h1>\n" +
+                                "            Tickets\n" +
+                                "        </h1>\n" +
+                                "        <form name=\"formProfeTickets\" action=\"TicketsProfe\" >\n" +
+                                "            \n" +
+                                "            <div> \n" +
+                                "                <label for=\"Ordenar\"> Ordenar </label> \n" +
+                                "            </div>\n" +
+                                "            \n" +
+                                "            <br>\n" +
+                                "            \n" +
+                                "            <div>\n" +
+                                "                <select>\n" +
+                                "                    <option value=\"OrdenCursoGeneral\">Curso</option>\n" +
+                                "                    <option value=\"OrdenCarnetGeneral\">Carnet</option>\n" +
+                                "                    <option value=\"OrdenTipoGeneral\">Tipo</option>\n" +
+                                "                </select>\n" +
+                                "            </div>\n" +
+                                "                <br>\n" +
+                                "                \n" +
+                                "            <div> \n" +
+                                "                <label for=\"Filtro\"> Filtro de Tipos </label> \n" +
+                                "            </div>\n" +
+                                "                \n" +
+                                "                <br>\n" +
+                                "                \n" +
+                                "            <div>\n" +
+                                "                <select>\n" +
+                                "                    <option value=\"Consulta\">Consulta</option>\n" +
+                                "                    <option value=\"Reclamo\">Reclamo</option>\n" +
+                                "                    <option value=\"Revision\">Revisión</option>\n" +
+                                "                </select>\n" +
+                                "            </div>\n" +
+                                "                <br> \n" +
+                                "            \n" +
+                                "            &nbsp;\n" +
+                                "            <input type=\"submit\" value=\"Aplicar\" name=\"btnAplicar\" /> <br> <br>\n" +
+                                "            \n" +
+                                "            <div>"+
+                                                    "<select name=\"Cursos\">" );
+                    
+                    out.println("                </select>"    +            
+                                "                <br>\n" +
+                                "                <br>\n" +                    
+                                "\n" +
+                                "                \n" +
+                                "            <div> \n" +
+                                "                <label for=\"DetalleTicketP\"> Detalle </label> \n" +
+                                "            </div>\n" +
+                                "            \n" +
+                                "            <br> \n" +
+                                "            <br>\n" +
+                                "            <div>\n" +
+                                "            <textarea name= \"DetalleTick\" rows=\"4\" cols=\"50\">Detalle de los tickets\n" +
+                                "            </textarea>\n" +
+                                "            </div>     \n" +
+                                " \n" +
+                                "            <br>\n" +
+                                "            <div>\n" +
+                                "            <input type=\"submit\" value=\"Descargar detalle\" name=\"btnDescargarTickP\" />\n" +
+                                "            </div>\n" +
+                                "            <br>\n" +
+                                "            \n" +
+                                "            \n" +
+                                "            <input type=\"submit\" value=\"Atras\" name=\"btnAtrasTickP\" />\n" +
+                                "            &nbsp;\n" +
+                                "            <input type=\"submit\" value=\"Responder\" name=\"btnResponderTickP\" />\n" +
+                                "            \n" +
+                                "\n" +
+                                "        </form>\n" +
+                                "    </body>\n" +
+                                "</html>\n" +
+                                "");
             }
         else{
                 if (request.getParameter("btnEnviar") != null){
                     PrintWriter out = response.getWriter();
             out.println("<!DOCTYPE html>\n" +
-"<!--\n" +
-"To change this license header, choose License Headers in Project Properties.\n" +
-"To change this template file, choose Tools | Templates\n" +
-"and open the template in the editor.\n" +
-"-->\n" +
-"<html>\n" +
-"    <head>\n" +
-"        <title>Pantalla Principal</title>\n" +
-"        <meta charset=\"UTF-8\">\n" +
-"        <meta name=\"viewport\" content=\"width=device-width, initial-scale=1.0\">\n" +
-"    </head>\n" +
-"    <body>\n" +
-"            <h1>\n" +
-"                Cursos\n" +
-"            </h1>\n" +
-"            <form name=\"formProfePrincipal\" action=\"ProfePrincipal\" >\n" +
-"                \n" +
-"                <input type=\"submit\" value=\"Configuración\" name=\"btnConfiguracion\" />\n" +
-"                \n" +
-"                <br>\n" +
-"                <br>\n" +
-"                \n" 
-+ "                <div>"+
-                    "<select name=\"Cursos\">" );
-            
-            /*BridgeControlador controller = BridgeControlador.getInstance();
-             ArrayList<Curso> ac = (ArrayList<Curso>)controller.getControllerOld().verCursos();
-             for(Curso c : ac){
-                 out.println("<option value=\"" + c.getCodigo()+":"+c.getNbr() + "\">" +  c.getCodigo()+":"+c.getNbr() + "</option>");
-             }
-                */
-            out.println( "                </select>"    +    
-"                <br>\n" +
-"                <br>\n" +
-"                \n" +
-"                <input type=\"submit\" value=\"Ticktes\" name=\"btnTickets\" />\n" +
-"                &nbsp;\n" +
-"                <input type=\"submit\" value=\"Ticktes por Curso\" name=\"btnTicketsCurso\" />\n" +
-"                &nbsp;\n" +
-"                <input type=\"submit\" value=\"Salir\" name=\"btnSalir\" />\n" +
-"   \n" +
-"            </form>\n" +
-"    </body>\n" +
-"</html>\n" +
-"");
+                        "<!--\n" +
+                        "To change this license header, choose License Headers in Project Properties.\n" +
+                        "To change this template file, choose Tools | Templates\n" +
+                        "and open the template in the editor.\n" +
+                        "-->\n" +
+                        "<html>\n" +
+                        "    <head>\n" +
+                        "        <title>Pantalla Principal</title>\n" +
+                        "        <meta charset=\"UTF-8\">\n" +
+                        "        <meta name=\"viewport\" content=\"width=device-width, initial-scale=1.0\">\n" +
+                        "    </head>\n" +
+                        "    <body>\n" +
+                        "            <h1>\n" +
+                        "                Cursos\n" +
+                        "            </h1>\n" +
+                        "            <form name=\"formProfePrincipal\" action=\"ProfePrincipal\" >\n" +
+                        "                \n" +
+                        "                <input type=\"submit\" value=\"Configuración\" name=\"btnConfiguracion\" />\n" +
+                        "                \n" +
+                        "                <br>\n" +
+                        "                <br>\n" +
+                        "                \n" 
+                        + "                <div>"+
+                                            "<select name=\"Cursos\">" );
+
+                                    /*BridgeControlador controller = BridgeControlador.getInstance();
+                                     ArrayList<Curso> ac = (ArrayList<Curso>)controller.getControllerOld().verCursos();
+                                     for(Curso c : ac){
+                                         out.println("<option value=\"" + c.getCodigo()+":"+c.getNbr() + "\">" +  c.getCodigo()+":"+c.getNbr() + "</option>");
+                                     }
+                                        */
+                                    out.println( "                </select>"    +    
+                        "                <br>\n" +
+                        "                <br>\n" +
+                        "                \n" +
+                        "                <input type=\"submit\" value=\"Ticktes\" name=\"btnTickets\" />\n" +
+                        "                &nbsp;\n" +
+                        "                <input type=\"submit\" value=\"Ticktes por Curso\" name=\"btnTicketsCurso\" />\n" +
+                        "                &nbsp;\n" +
+                        "                <input type=\"submit\" value=\"Salir\" name=\"btnSalir\" />\n" +
+                        "   \n" +
+                        "            </form>\n" +
+                        "    </body>\n" +
+                        "</html>\n" +
+                        "");
                 }
             }
     }

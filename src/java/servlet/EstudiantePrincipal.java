@@ -10,6 +10,7 @@ import Modelo.Curso;
 import Modelo.Profesor;
 import Modelo.Ticket;
 import Negocio.BridgeControlador;
+import Negocio.Fachada_Enviar;
 import java.io.IOException;
 import java.io.PrintWriter;
 import java.util.ArrayList;
@@ -18,6 +19,7 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import org.jboss.weld.bean.builtin.FacadeInjectionPoint;
 
 /**
  *
@@ -46,14 +48,20 @@ public class EstudiantePrincipal extends HttpServlet {
                 btnBuscarServlet(request, response);
             }
         else if (request.getParameter("btnTicketC") != null){
-                response.sendRedirect("EnviarTicket.html");
+            Fachada_Enviar f = new Fachada_Enviar();
+            PrintWriter out = response.getWriter();
+            out.println(f.enviar("C"));
             }
         else  if (request.getParameter("btnTicketRE") != null){
-                    response.sendRedirect("EnviarTicket.html");
+            Fachada_Enviar f = new Fachada_Enviar();
+            PrintWriter out = response.getWriter();
+            out.println(f.enviar("RE"));
                 }
         else{
                 if (request.getParameter("btnTicketRP") != null){
-                    response.sendRedirect("EnviarTicket.html");
+                    Fachada_Enviar f = new Fachada_Enviar();
+                    PrintWriter out = response.getWriter();
+                    out.println(f.enviar("RP"));
                 }
             }
         

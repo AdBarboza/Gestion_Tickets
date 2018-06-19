@@ -28,7 +28,7 @@ public class revisionProperties extends capturaProperties{
                         properties.setProperty("Detalle", detalle);
                         properties.setProperty("FechaPropuesta", fechaPro);
 
-			File file = new File("ticketReclamo.properties");
+			File file = new File("ticketRevision.properties");
 			FileOutputStream fileOut = new FileOutputStream(file);
                         properties.store(fileOut, "Ticket Revision");
 			fileOut.close();

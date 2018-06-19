@@ -28,7 +28,7 @@ public class PruebaMain {
 			properties.setProperty("favoriteContinent", "Antarctica");
 			properties.setProperty("favoritePerson", "Nicole");
 
-			File file = new File("test2.properties");
+			File file = new File("ticketConsulta.properties");
 			FileOutputStream fileOut = new FileOutputStream(file);
                         properties.store(fileOut, "Favorite Things");
 			fileOut.close();

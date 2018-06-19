@@ -28,7 +28,7 @@ public class consultaProperties extends capturaProperties{
                         properties.setProperty("Detalle", detalle);
                         properties.setProperty("Asunto", asunto);
 
-			File file = new File("ticketConsulta.properties");
+			File file = new File("C:\\Users\\Jafeth Leiva\\Desktop\\TEC\\TEC 2018 - l Semestre\\Diseño\\Gestion_Tickets\\ticketConsulta.properties");
 			FileOutputStream fileOut = new FileOutputStream(file);
                         properties.store(fileOut, "Ticket Consulta");
                         System.out.println("Hoja");

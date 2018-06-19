@@ -5,6 +5,10 @@
  */
 package servlet;
 
+import Control.Controlador;
+import Modelo.Ticket;
+import Modelo.Tickete_C;
+import Negocio.Controladora;
 import Negocio.consultaProperties;
 import Negocio.reclamoProperties;
 import Negocio.revisionProperties;
@@ -34,14 +38,14 @@ public class EnviarTicket extends HttpServlet {
      */
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-        String tipo = ""; // ESTO NO VA, ES SOLO PRUEBA
+        //String tipo = ""; // ESTO NO VA, ES SOLO PRUEBA
         response.setContentType("text/html;charset=UTF-8");
         if (request.getParameter("btnAtrasE") != null){
                     response.sendRedirect("EstudiantePrincipal.html");
                 }
         else{
                 if (request.getParameter("btnEnviarE") != null){
-                    if(tipo == "C"){
+                    if(Controladora.getInstance().getTipo().equals("C")){
                         String fecha,carnet,nombre,correo,tipoConsulta,detalle,asunto;
                         fecha = request.getParameter("fechaE");
                         carnet = request.getParameter("carnetE");
@@ -50,10 +54,48 @@ public class EnviarTicket extends HttpServlet {
                         tipoConsulta = request.getParameter("tipo");
                         detalle = request.getParameter("Detalle");
                         asunto = request.getParameter("Asunto");
+//                        String fecha,carnet,nombre,correo,tipoConsulta,detalle,asunto;
+//                        fecha = "214";
+//                        carnet = "ecwew";
+//                        nombre = "nombreE";
+//                        correo = "correo";
+//                        tipoConsulta = "tipo";
+//                        detalle = "Detalle";
+//                        asunto = "Asunto";
                         
                         consultaProperties.creaProperties(fecha, carnet, nombre, correo, tipoConsulta, detalle, asunto);
-                        PrintWriter out  = response.getWriter();
-                        out.println("<!DOCTYPE html>\n" +
+                        Controladora cont = Controladora.getInstance();
+                        cont.EnviarTicket(cont.getIdP(), cont.getIdC(), "C");
+
+                    }
+                    else if(Controladora.getInstance().getTipo().equals("RE")){
+                        String fecha,carnet,nombre,correo,detalle,tipoReclamo;
+                        fecha = request.getParameter("fechaE");
+                        carnet = request.getParameter("carnetE");
+                        nombre = request.getParameter("nombreE");
+                        correo = request.getParameter("correo");
+                        tipoReclamo = request.getParameter("tipo");
+                        detalle = request.getParameter("Detalle");
+                        
+                        reclamoProperties.creaProperties(fecha, carnet, nombre, correo, tipoReclamo,detalle);
+                        Controladora cont = Controladora.getInstance();
+                        cont.EnviarTicket(cont.getIdP(), cont.getIdC(), "RE");
+                    }
+                    else if(Controladora.getInstance().getTipo().equals("RP")){
+                        String fecha,carnet,nombre,correo,fechaPro,detalle;
+                        fecha = request.getParameter("fechaE");
+                        carnet = request.getParameter("carnetE");
+                        nombre = request.getParameter("nombreE");
+                        correo = request.getParameter("correo");
+                        detalle = request.getParameter("Detalle");
+                        fechaPro = request.getParameter("FechaPro");                        
+                        
+                        revisionProperties.creaProperties(fecha, carnet, nombre, correo, detalle, fechaPro);
+                        Controladora cont = Controladora.getInstance();
+                        cont.EnviarTicket(cont.getIdP(), cont.getIdC(), "RP");
+                    }
+                    PrintWriter out = response.getWriter();
+                    out.println("<!DOCTYPE html>\n" +
 "<!--\n" +
 "To change this license header, choose License Headers in Project Properties.\n" +
 "To change this template file, choose Tools | Templates\n" +
@@ -69,7 +111,7 @@ public class EnviarTicket extends HttpServlet {
 "        \n" +
 "        <h1>\n");
                         
-        //ACA VA EL CODIGO           
+        //ACA VA EL CODIGO ASOCIADO AL TICKETE ENVIADO 
                         
             out.println("        </h1>\n" +
 "        \n" +
@@ -78,30 +120,6 @@ public class EnviarTicket extends HttpServlet {
 "        </form>\n" +
 "    </body>\n" +
 "</html>");
-                    }
-                    else if(tipo == "RE"){
-                        String fecha,carnet,nombre,correo,detalle,tipoReclamo;
-                        fecha = request.getParameter("fechaE");
-                        carnet = request.getParameter("carnetE");
-                        nombre = request.getParameter("nombreE");
-                        correo = request.getParameter("correo");
-                        tipoReclamo = request.getParameter("tipo");
-                        detalle = request.getParameter("Detalle");
-                        
-                        reclamoProperties.creaProperties(fecha, carnet, nombre, correo, tipoReclamo,detalle);
-                    }
-                    else if(tipo == "RP"){
-                        String fecha,carnet,nombre,correo,fechaPro,detalle;
-                        fecha = request.getParameter("fechaE");
-                        carnet = request.getParameter("carnetE");
-                        nombre = request.getParameter("nombreE");
-                        correo = request.getParameter("correo");
-                        detalle = request.getParameter("Detalle");
-                        fechaPro = request.getParameter("FechaPro");                        
-                        
-                        revisionProperties.creaProperties(fecha, carnet, nombre, correo, detalle, fechaPro);
-                    }
-                    response.sendRedirect("EstudiantePrincipal.html");
                 }
             }
     }

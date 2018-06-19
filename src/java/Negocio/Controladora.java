@@ -73,7 +73,7 @@ public class Controladora {
     
     public void EnviarTicket(int idP, int idC, String tipo){
         PropertiesToXml propertoxml = new PropertiesToXml();
-        String path = propertoxml.convertir("C:\\Users\\Jafeth Leiva\\Desktop\\TEC\\TEC 2018 - l Semestre\\Diseño\\Gestion_Tickets\\test2.properties");
+        String path = propertoxml.convertir("C:\\Users\\Jafeth Leiva\\Desktop\\TEC\\TEC 2018 - l Semestre\\Diseño\\Gestion_Tickets\\ticketConsulta.properties");
         System.out.println(path);
         Ticket ticket;
         if(tipo.equals("C")){

@@ -27,7 +27,7 @@ public class reclamoProperties extends capturaProperties{
                         properties.setProperty("Tipo", tipo);
                         properties.setProperty("Detalle", detalle);
 
-			File file = new File("ticketReclamo.properties");
+			File file = new File("C:\\Users\\Jafeth Leiva\\Desktop\\TEC\\TEC 2018 - l Semestre\\Diseño\\Gestion_Tickets\\ticketReclamo.properties");
 			FileOutputStream fileOut = new FileOutputStream(file);
                         properties.store(fileOut, "Ticket Reclamo");
 			fileOut.close();

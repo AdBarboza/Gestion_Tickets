@@ -5,8 +5,11 @@
  */
 package servlet;
 
+import Control.Controlador;
+import Modelo.Curso;
 import java.io.IOException;
 import java.io.PrintWriter;
+import java.util.ArrayList;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
@@ -35,6 +38,17 @@ public class ConfigurarProfe extends HttpServlet {
                 /*atención al boton de Registro*/
                 /*redirecciona al servlet para que despliegue otra pagina*/
                 //response.sendRedirect("ProfePrincipal.html");
+            }
+        else if(request.getParameter("btnCargar") != null){
+                Controlador controller = Controlador.getInstance();
+                Curso curso;
+                String c= request.getParameter("Cursos").split(":")[0];
+                System.out.println(request.getParameter("Cursos").split(":")[0]+ "putaaaaaaaaaaaaaaaaa");
+                curso = controller.verEstados(1);
+                System.out.println(Controlador.getInstance().verEstados(Integer.parseInt(c)).isEst_C()+ "holaaaaaa k pex");
+                System.out.println(curso.isEst_RE() + "holaaaaaa k pex2");
+                System.out.println(curso.isEst_RP() + "holaaaaaa k pex3");
+                printEstados(request, response, curso);
             }
         else{
                 if (request.getParameter("btnAtrasConf") != null){
@@ -89,6 +103,65 @@ public class ConfigurarProfe extends HttpServlet {
                 }
             }
     }
+    
+    private void printEstados(HttpServletRequest request, HttpServletResponse response, Curso curso) throws IOException{
+        PrintWriter out = response.getWriter();
+        //Controlador controller = Controlador.getInstance();
+        //curso = controller.verEstados(0)
+                    out.println("<html>\n" +
+                                "    <head>\n" +
+                                "        <title>Configuracion</title>\n" +
+                                "        <meta charset=\"UTF-8\">\n" +
+                                "        <meta name=\"viewport\" content=\"width=device-width, initial-scale=1.0\">\n" +
+                                "    </head>\n" +
+                                "    <body>\n" +
+                                "        \n" +
+                                "        <h1>\n" +
+                                "            Configuracion\n" +
+                                "        </h1>\n" +
+                                "        \n" +
+                                "        <form name=\"formConfigurarProfe\" action=\"ConfigurarProfe\">\n" );
+                    if(curso.isEst_C()){
+                        out.println("        <input type=\"checkbox\" name=\"Consulta\" value=\"tipo\" checked> Consulta<br> <br>");
+                    }else{
+                        out.println("        <input type=\"checkbox\" name=\"Consulta\" value=\"tipo\"> Consulta<br> <br>");
+                    }
+                    if(curso.isEst_RE()){
+                        out.println("        <input type=\"checkbox\" name=\"Revision\" value=\"tipo\" checked> Revision<br> <br>");
+                    }
+                    else{
+                        out.println("        <input type=\"checkbox\" name=\"Revision\" value=\"tipo\"> Revision<br> <br>");
+                    }
+                    if(curso.isEst_RP()){
+                        out.println("        <input type=\"checkbox\" name=\"Reclamo\" value=\"tipo\" checked> Reclamo<br> <br>");
+                    }
+                    else{
+                        out.println("        <input type=\"checkbox\" name=\"Reclamo\" value=\"tipo\"> Reclamo<br> <br>");
+                    }
+                    
+                    out.println("                <div>"+
+                                                    "<select name=\"Cursos\">" );
+
+                                            Controlador controller = Controlador.getInstance();
+                                            ArrayList<Curso> ac = (ArrayList<Curso>)controller.verCursos();
+                                             for(Curso c : ac){
+                                                 out.println("<option value=\"" + c.getCodigo()+":"+c.getNbr() + "\">" +  c.getCodigo()+":"+c.getNbr() + "</option>");
+                                             }
+
+                                             out.println("                </select>"    +    
+                                "                <br>\n" +
+                                "                <br>\n" +
+                                                "            <input type=\"submit\" value=\"Aceptar\" name=\"btnAceptar\">\n" +
+                                "            &nbsp;\n" +
+                                "            <input type=\"submit\" value=\"Atras\" name=\"btnAtrasConf\">\n" +
+                                "            &nbsp;\n" +
+                                "            <input type=\"submit\" value=\"Cargar Cursos\" name=\"btnCargar\">\n" +
+                                "            &nbsp;\n" +
+                                "            <input type=\"submit\" value=\"Reiniciar Config\" name=\"btnReiniciar\">\n" +
+                                "        </form>\n" +
+                                "    </body>\n" +
+                                "</html>");
+    }
 
     // <editor-fold defaultstate="collapsed" desc="HttpServlet methods. Click on the + sign on the left to edit the code.">
     /**
@@ -129,4 +202,6 @@ public class ConfigurarProfe extends HttpServlet {
         return "Short description";
     }// </editor-fold>
 
+    
+    
 }

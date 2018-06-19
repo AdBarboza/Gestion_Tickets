@@ -52,7 +52,32 @@ public class EnviarTicket extends HttpServlet {
                         asunto = request.getParameter("Asunto");
                         
                         consultaProperties.creaProperties(fecha, carnet, nombre, correo, tipoConsulta, detalle, asunto);
-                        PrintWriter out  = response.getWriter();
+                        
+                    }
+                    else if(tipo == "RE"){
+                        String fecha,carnet,nombre,correo,detalle,tipoReclamo;
+                        fecha = request.getParameter("fechaE");
+                        carnet = request.getParameter("carnetE");
+                        nombre = request.getParameter("nombreE");
+                        correo = request.getParameter("correo");
+                        tipoReclamo = request.getParameter("tipo");
+                        detalle = request.getParameter("Detalle");
+                        
+                        reclamoProperties.creaProperties(fecha, carnet, nombre, correo, tipoReclamo,detalle);
+                        
+                    }
+                    else if(tipo == "RP"){
+                        String fecha,carnet,nombre,correo,fechaPro,detalle;
+                        fecha = request.getParameter("fechaE");
+                        carnet = request.getParameter("carnetE");
+                        nombre = request.getParameter("nombreE");
+                        correo = request.getParameter("correo");
+                        detalle = request.getParameter("Detalle");
+                        fechaPro = request.getParameter("FechaPro");                        
+                        
+                        revisionProperties.creaProperties(fecha, carnet, nombre, correo, detalle, fechaPro);
+                    }
+                    PrintWriter out  = response.getWriter();
                         out.println("<!DOCTYPE html>\n" +
 "<!--\n" +
 "To change this license header, choose License Headers in Project Properties.\n" +
@@ -78,30 +103,6 @@ public class EnviarTicket extends HttpServlet {
 "        </form>\n" +
 "    </body>\n" +
 "</html>");
-                    }
-                    else if(tipo == "RE"){
-                        String fecha,carnet,nombre,correo,detalle,tipoReclamo;
-                        fecha = request.getParameter("fechaE");
-                        carnet = request.getParameter("carnetE");
-                        nombre = request.getParameter("nombreE");
-                        correo = request.getParameter("correo");
-                        tipoReclamo = request.getParameter("tipo");
-                        detalle = request.getParameter("Detalle");
-                        
-                        reclamoProperties.creaProperties(fecha, carnet, nombre, correo, tipoReclamo,detalle);
-                    }
-                    else if(tipo == "RP"){
-                        String fecha,carnet,nombre,correo,fechaPro,detalle;
-                        fecha = request.getParameter("fechaE");
-                        carnet = request.getParameter("carnetE");
-                        nombre = request.getParameter("nombreE");
-                        correo = request.getParameter("correo");
-                        detalle = request.getParameter("Detalle");
-                        fechaPro = request.getParameter("FechaPro");                        
-                        
-                        revisionProperties.creaProperties(fecha, carnet, nombre, correo, detalle, fechaPro);
-                    }
-                    response.sendRedirect("EstudiantePrincipal.html");
                 }
             }
     }

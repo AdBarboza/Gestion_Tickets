@@ -22,21 +22,7 @@ public class PruebaMain {
      */
     public static void main(String[] args) throws IOException {
         // TODO code application logic here
-		try {
-			Properties properties = new Properties();
-			properties.setProperty("favoriteAnimal", "marmot");
-			properties.setProperty("favoriteContinent", "Antarctica");
-			properties.setProperty("favoritePerson", "Nicole");
-
-			File file = new File("test2.properties");
-			FileOutputStream fileOut = new FileOutputStream(file);
-                        properties.store(fileOut, "Favorite Things");
-			fileOut.close();
-		} catch (FileNotFoundException e) {
-			e.printStackTrace();
-		} catch (IOException e) {
-			e.printStackTrace();
-		}
+		consultaProperties.creaProperties("hola", "d", "t", "r", "y", "e", "e");
     }
     
 }

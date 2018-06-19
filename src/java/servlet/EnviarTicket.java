@@ -52,6 +52,32 @@ public class EnviarTicket extends HttpServlet {
                         asunto = request.getParameter("Asunto");
                         
                         consultaProperties.creaProperties(fecha, carnet, nombre, correo, tipoConsulta, detalle, asunto);
+                        PrintWriter out  = response.getWriter();
+                        out.println("<!DOCTYPE html>\n" +
+"<!--\n" +
+"To change this license header, choose License Headers in Project Properties.\n" +
+"To change this template file, choose Tools | Templates\n" +
+"and open the template in the editor.\n" +
+"-->\n" +
+"<html>\n" +
+"    <head>\n" +
+"        <title>Codigo</title>\n" +
+"        <meta charset=\"UTF-8\">\n" +
+"        <meta name=\"viewport\" content=\"width=device-width, initial-scale=1.0\">\n" +
+"    </head>\n" +
+"    <body>\n" +
+"        \n" +
+"        <h1>\n");
+                        
+        //ACA VA EL CODIGO           
+                        
+            out.println("        </h1>\n" +
+"        \n" +
+"        <form name=\"PantallaCodigo\" action=\"PantallaCodigo\">\n" +
+"            <input type=\"submit\" value=\"Aceptar\" name=\"btnAceptar\">\n" +
+"        </form>\n" +
+"    </body>\n" +
+"</html>");
                     }
                     else if(tipo == "RE"){
                         String fecha,carnet,nombre,correo,detalle,tipoReclamo;
@@ -118,6 +144,7 @@ public class EnviarTicket extends HttpServlet {
     public String getServletInfo() {
         return "Short description";
     }// </editor-fold>
+      
 
 }
 

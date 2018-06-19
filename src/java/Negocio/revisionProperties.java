@@ -30,6 +30,7 @@ public class revisionProperties extends capturaProperties{
 
 			File file = new File("ticketReclamo.properties");
 			FileOutputStream fileOut = new FileOutputStream(file);
+                        properties.store(fileOut, "Ticket Revision");
 			fileOut.close();
 		} catch (FileNotFoundException e) {
 			e.printStackTrace();

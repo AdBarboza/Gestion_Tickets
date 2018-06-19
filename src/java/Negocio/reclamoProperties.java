@@ -29,6 +29,7 @@ public class reclamoProperties extends capturaProperties{
 
 			File file = new File("ticketReclamo.properties");
 			FileOutputStream fileOut = new FileOutputStream(file);
+                        properties.store(fileOut, "Ticket Reclamo");
 			fileOut.close();
 		} catch (FileNotFoundException e) {
 			e.printStackTrace();

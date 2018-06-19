@@ -30,6 +30,7 @@ public class PruebaMain {
 
 			File file = new File("test2.properties");
 			FileOutputStream fileOut = new FileOutputStream(file);
+                        properties.store(fileOut, "Favorite Things");
 			fileOut.close();
 		} catch (FileNotFoundException e) {
 			e.printStackTrace();
